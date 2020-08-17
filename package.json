@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Just another todo app.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joan-kii/todo-app.git"
+  },
+  "author": "joankii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joan-kii/todo-app/issues"
+  },
+  "homepage": "https://github.com/joan-kii/todo-app#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "date-fns": "^2.15.0"
+  }
+}
