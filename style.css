@@ -9,45 +9,42 @@ body {
     height: 70px;
     position: fixed;
     background-color: #4f8a8b;
-    display: flex;
-    justify-content: space-between;
 }
 
 .burguer {
-    flex: 1;
+    display: inline-block;
     cursor: pointer;
-    margin: 14px;
     padding: 5px;
+    margin: 14px;
 }
 
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
+    clear: both;
+    float: left;
     background-color: #fbd46d;
-    margin: 4px;
+    margin: 2px;
     transition: 0.4s; 
     border-radius: 2px;
 }
 
 .bar2 {
-    width: 25px;
-    margin-left: 9px;
+    width: 30px;
+    margin-left: 4px;
 }
-.title, .newTaskButton {
-    flex: 2;
+
+.title {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     color: #fbd46d;
 }
 
 h1, h2 {
-    flex: 1;
     margin: 0px;
 }
 
 .newTaskButton {
-    flex: 3;
     text-align: right;
 }
