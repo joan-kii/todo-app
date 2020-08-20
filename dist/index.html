@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>TODO App</title>
 </head>
@@ -20,16 +21,17 @@
             <h2 id="currentProject">Proyecto</h2>
         </div>
         <div id ="newTaskButton" class="newTaskButton">
-            <div class="newTaskIcon">
+            <div id="newTaskIcon" class="newTaskIcon">
                 <div id="newTaskPlus" class="newTaskPlus">
                     <div class="vertLine"></div>
                     <div class="horiLine"></div>
                 </div>
-            <span id="newTaskText" class="newTaskText">Nueva Tarea</a>
+                <span id="newTaskText" class="newTaskText">Nueva Tarea</a>
             </div>
         </div>
     </header>
     <main>
+        <div id="sideBar" class="sideBar"></div>
         <div id="content" class="content"></div>
     </main>
     <script src="main.js"></script>
