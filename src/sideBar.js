@@ -1,5 +1,18 @@
-export function createSideBar(projects) {
-    const sideBar = document.createElement('div');
-    sideBar.id = 'sideBar';
-    sideBar.className = 'sideBar';
-}
+// Outputs
+
+const newProjectButton = document.createElement('button');
+
+// Inputs 
+
+const sideBar = document.getElementById('sideBar');
+newProjectButton.className = 'newProjectButton';
+newProjectButton.textContent = 'Nuevo Proyecto';
+sideBar.appendChild(newProjectButton);
+
+export function createSideBar() {
+    if (sideBar.style.display === 'block') {
+        sideBar.style.display = 'none';
+    } else {
+        sideBar.style.display = 'block'; 
+    };
+};
