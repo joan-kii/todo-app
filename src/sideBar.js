@@ -1,18 +1,23 @@
 // Outputs
 
 const newProjectButton = document.createElement('button');
+newProjectButton.className = 'newProjectButton';
+newProjectButton.textContent = 'Nuevo Proyecto';
 
 // Inputs 
 
+const content = document.getElementById('content');
+
 const sideBar = document.getElementById('sideBar');
-newProjectButton.className = 'newProjectButton';
-newProjectButton.textContent = 'Nuevo Proyecto';
 sideBar.appendChild(newProjectButton);
 
 export function createSideBar() {
-    if (sideBar.style.display === 'block') {
-        sideBar.style.display = 'none';
+    if (sideBar.style.width === '25%') {
+        sideBar.style.width = '0';
+        content.style.marginLeft = '0';
+
     } else {
-        sideBar.style.display = 'block'; 
+        sideBar.style.width = '25%';
+        content.style.marginLeft = '25%'; 
     };
 };
