@@ -1,15 +1,10 @@
 // Outputs
 
-const newProjectButton = document.createElement('button');
-newProjectButton.className = 'newProjectButton';
-newProjectButton.textContent = 'Nuevo Proyecto';
-
 // Inputs 
 
 const content = document.getElementById('content');
 
 const sideBar = document.getElementById('sideBar');
-sideBar.appendChild(newProjectButton);
 
 export function createSideBar() {
     if (sideBar.style.width === '25%') {
