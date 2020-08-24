@@ -1,12 +1,10 @@
-class Todo {
-    constructor (title, description, dueDate, priority, notes, checklist) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.notes = notes;
-        this.checklist = checklist;
-    };
-};
+// Function
 
-export { Todo };
+const createTodo = (title, description, dueDate, priority, notes, checklist) => {
+    return { title, description, dueDate, priority, notes, checklist };
+    };
+
+// Export
+
+export { createTodo };
+ 
