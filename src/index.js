@@ -1,6 +1,7 @@
 // Imports 
 
 import { createSideBar } from './sideBar';
+import { newTaskModalRender } from './newTaskModal';
 
 // Inputs
 
@@ -9,6 +10,8 @@ const plusTaskButton = document.getElementById('newTaskPlus');
 const newTaskButton = document.getElementById('newTaskIcon');
 const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
+const currentProject = document.getElementById('currentProject');
+const content = document.getElementById('content');
 
 // Functions
 
@@ -19,8 +22,13 @@ burgerButton.addEventListener('click', function() {
 
 newTaskButton.addEventListener('click', function() {
     plusTaskButton.classList.toggle('changeToCross');
+    content.appendChild(newTaskModalRender(currentProject.innerText));
 });
 
 newProjectButton.addEventListener('click', function() {
     plusProjectButton.classList.toggle('changeToCross');
 });
+
+// Exports
+
+export { plusTaskButton };

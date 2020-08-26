@@ -1,9 +1,13 @@
+// Imports 
+
+import { plusTaskButton } from './index';
+
 // Function
 
-function newTaskModal(project) {
+function newTaskModalRender(project) {
     // Modal
     const newTaskModal = document.createElement('div');
-    newTaskModal.id = 'NewTaskModal';
+    newTaskModal.id = 'newTaskModal';
     newTaskModal.className = 'newTaskModal';
 
     // Project Title
@@ -90,6 +94,14 @@ function newTaskModal(project) {
 
     modalForm.appendChild(priorityButtons);
 
+    // Cancel Button
+    const cancelNewTaskButton = document.createElement('button');
+    cancelNewTaskButton.id = 'cancelNewTaskButton';
+    cancelNewTaskButton.className = 'cancelNewTaskButton';
+    cancelNewTaskButton.textContent = 'Cancelar';
+    cancelNewTaskButton.type = 'button';
+    modalForm.appendChild(cancelNewTaskButton);
+
     // Submit Button
     const submitTask = document.createElement('input');
     submitTask.id = 'submitTask';
@@ -97,6 +109,15 @@ function newTaskModal(project) {
     submitTask.type = 'submit';
     submitTask.value = 'Crear Tarea';
     modalForm.appendChild(submitTask);
+
+    newTaskModal.style.display = 'block';
+
+    cancelNewTaskButton.addEventListener('click', function() {
+        plusTaskButton.classList.toggle('changeToCross');
+        newTaskModal.style.display = 'none';
+    });
+
+    return newTaskModal;
 };
 
-export { newTaskModal };
+export { newTaskModalRender };
