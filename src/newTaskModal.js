@@ -10,26 +10,30 @@ function newTaskModalRender(project) {
     newTaskModal.id = 'newTaskModal';
     newTaskModal.className = 'newTaskModal';
 
+    // Pop Modal
+    const popModal = document.createElement('popModal');
+    popModal.id = 'popModal';
+    popModal.className = 'popModal';
+    newTaskModal.appendChild(popModal);
+
     // Project Title
     const projectSelected = document.createElement('h2');
     projectSelected.id = 'projectSelected';
     projectSelected.className = 'projectSelected';
     projectSelected.textContent = project;
-    newTaskModal.appendChild(projectSelected);
+    popModal.appendChild(projectSelected);
 
     // New Task
     const modalTitle = document.createElement('h3');
     modalTitle.className = 'modalTitle';
     modalTitle.textContent = 'Nueva Tarea';
-    newTaskModal.appendChild(modalTitle);
+    popModal.appendChild(modalTitle);
 
     // Form
     const modalForm = document.createElement('form');
     modalForm.id = 'modalForm';
     modalForm.className = 'modalForm';
-    newTaskModal.appendChild(modalForm); 
-    // Posible bug. Añade modalForm a modal antes añadir
-    // elementos a modalForm
+    popModal.appendChild(modalForm);
     
     // Task Title Input
     const taskTitle = document.createElement('input');
