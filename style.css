@@ -175,7 +175,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 350px;
+    height: 370px;
     background-color: white;
     border-radius: 10px;
 }
@@ -208,17 +208,21 @@ h1, h2, h3 {
 }
 
 .taskTitle, .notes {
-    height: 35px;
     align-self: flex-end;
     font-family: inherit;
+    border: 1px solid #004e64;
+    border-radius: 4px;
+    text-indent: 5px;
 }
 
 .taskTitle {
+    height: 35px;
     grid-area: title;
     font-size: 1.4em;
 }
 
 .notes {
+    height: 50px;
     grid-area: notes;
     font-size: 1.2em;
 }
@@ -240,9 +244,19 @@ h1, h2, h3 {
 }
 
 .cancelNewTaskButton, .submitTask {
-    padding: 10px;
-    margin: 5px;
+    padding-top: 3px;
     border: none;
+    border-radius: 5px;
     font-family: inherit;
     font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background-color: #004e64;
+    cursor: pointer;
 }
+
+.cancelNewTaskButton:hover, .submitTask:hover {
+    color: #004e64;
+    background-color: white;
+    border: 4px solid #004e64;
+} 
