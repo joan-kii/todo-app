@@ -61,7 +61,7 @@ function newTaskModalRender(project) {
     modalForm.appendChild(dueDate);
 
     // Priority Input
-    /* const priority = document.createElement('select');
+    const priority = document.createElement('select');
     priority.id = 'priority';
     priority.className = 'priority';
 
@@ -69,34 +69,30 @@ function newTaskModalRender(project) {
         let option = document.createElement('option');
         option.value = i;
         priority.options.add(option);
-    }; */
-
-    const priorityButtons = document.createElement('div');
-    priorityButtons.id = 'priorityButtons';
-    priorityButtons.className = ' priorityButtons';
+    };
 
     const labelPrioritybuttons = document.createElement('label');
-    labelPrioritybuttons.htmlFor = 'priorityButtons';
+    labelPrioritybuttons.htmlFor = 'priority';
 
     const lowPriority = document.createElement('span');
     lowPriority.id = 'lowPriority';
     lowPriority.className = 'lowPriority';
     lowPriority.value = '1';
-    priorityButtons.appendChild(lowPriority);
+    priority.appendChild(lowPriority);
 
     const mediumPriority = document.createElement('span');
     mediumPriority.id = 'mediumPriority';
     mediumPriority.className = 'mediumPriority';
     lowPriority.value = '2';
-    priorityButtons.appendChild(mediumPriority);
+    priority.appendChild(mediumPriority);
 
     const highPriority = document.createElement('span');
     highPriority.id = 'highPriority';
     highPriority.className = 'highPriority';
     lowPriority.value = '3';
-    priorityButtons.appendChild(highPriority);
+    priority.appendChild(highPriority);
 
-    modalForm.appendChild(priorityButtons);
+    modalForm.appendChild(priority);
 
     // Cancel Button
     const cancelNewTaskButton = document.createElement('button');
