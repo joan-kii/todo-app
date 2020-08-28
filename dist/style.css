@@ -181,13 +181,11 @@ h1, h2, h3 {
 }
 
 .projectSelected {
-    flex: 1;
-    padding: 5px;
+    padding-top: 5px;
     font-size: 2em;
 }
 
 .modalTitle {
-    flex: 2;
     font-size: 1.5em;
 }
 
@@ -195,7 +193,7 @@ h1, h2, h3 {
     flex: 3;
     display: grid;
     grid-template-columns:150px 150px;
-    grid-template-rows: 45px 45px 45px 45px;
+    grid-template-rows: 60px 60px 50px 50px;
     grid-template-areas: 
         "title title"
         "notes notes"
@@ -204,11 +202,10 @@ h1, h2, h3 {
     column-gap: 30px;
     row-gap: 10px;
     justify-content: center;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
 }
 
-.taskTitle, .notes {
-    align-self: flex-end;
+.taskTitle, .notes, .dueDate, .priority {
     font-family: inherit;
     border: 1px solid #004e64;
     border-radius: 4px;
@@ -216,12 +213,14 @@ h1, h2, h3 {
 }
 
 .taskTitle {
+    align-self: flex-end;
     height: 35px;
     grid-area: title;
     font-size: 1.4em;
 }
 
 .notes {
+    align-self: flex-end;
     height: 50px;
     grid-area: notes;
     font-size: 1.2em;
@@ -229,10 +228,13 @@ h1, h2, h3 {
 
 .dueDate {
     grid-area: date;
+    font-size: 1.2em;
+    opacity: 0.6;
 }
 
-.priorityButtons {
+.priority {
     grid-area: priority;
+    background-color: white;
 }
 
 .cancelNewTaskButton {
