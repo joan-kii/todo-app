@@ -206,6 +206,7 @@ h1, h2, h3 {
 }
 
 .taskTitle, .notes, .dueDate, .priority {
+    color: inherit;
     font-family: inherit;
     border: 1px solid #004e64;
     border-radius: 4px;
@@ -227,14 +228,61 @@ h1, h2, h3 {
 }
 
 .dueDate {
+    color: inherit;
     grid-area: date;
-    font-size: 1.2em;
-    opacity: 0.6;
+    font-size: 0.95em;
+    border: 1px solid;
 }
 
 .priority {
     grid-area: priority;
     background-color: white;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 5px 40px;
+    grid-template-areas: 
+        "label label label"
+        "lowPriority mediumPriority highPriority";
+}
+
+.labelPriorityButtons {
+    grid-area: label;
+    position: relative;
+    height: 20px;
+    width: 65px;
+    top: -11px;
+    left: 5px;
+    background-color: white;
+    padding: 0 3px;
+}
+
+.lowPriority, .mediumPriority, .highPriority {
+    width: 42px;
+    height: 70%;
+    border: inherit;
+    justify-self: center;
+    align-self: center;
+    margin-left: 2px;
+    opacity: 0.3;
+}
+
+.lowPriority:hover, .mediumPriority:hover, .highPriority:hover {
+    opacity: 1;
+}
+
+.lowPriority {
+    grid-area: lowPriority;
+    background-color: yellow;
+}
+
+.mediumPriority {
+    grid-area: mediumPriority;
+    background-color: orange;
+}
+
+.highPriority {
+    grid-area: highPriority;
+    background-color: red;
 }
 
 .cancelNewTaskButton {
