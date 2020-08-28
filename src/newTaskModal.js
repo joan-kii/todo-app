@@ -52,13 +52,11 @@ function newTaskModalRender(project) {
     modalForm.appendChild(notes);
 
     // Due Date Input
-    const dueDateLabel = document.createElement('label');
-    dueDateLabel.htmlFor = 'dueDate';
-    dueDateLabel.textContent = 'Fecha';
     const dueDate = document.createElement('input');
     dueDate.id = 'dueDate';
     dueDate.className = 'dueDate';
     dueDate.type = 'date';
+    dueDate.placeholder = 'Fecha';
     modalForm.appendChild(dueDate);
 
     // Priority Input
@@ -66,15 +64,11 @@ function newTaskModalRender(project) {
     priority.id = 'priority';
     priority.className = 'priority';
 
-    /* for (let i=0; i < 3; i++) {
-        let option = document.createElement('option');
-        option.value = i;
-        priority.options.add(option);
-    }; */
-
-    const labelPrioritybuttons = document.createElement('label');
-    labelPrioritybuttons.htmlFor = 'priority';
-    labelPrioritybuttons.textContent = 'Prioridad';
+    const labelPriorityButtons = document.createElement('label');
+    labelPriorityButtons.className = 'labelPriorityButtons';
+    labelPriorityButtons.setAttribute('for', 'priority');
+    labelPriorityButtons.textContent = 'Prioridad';
+    priority.appendChild(labelPriorityButtons);
 
     const lowPriority = document.createElement('span');
     lowPriority.id = 'lowPriority';
