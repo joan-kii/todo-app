@@ -2,7 +2,7 @@
 
 import { plusTaskButton } from './index';
 
-// Function
+// Main Function
 
 function newTaskModalRender(project) {
     // Modal
@@ -10,30 +10,30 @@ function newTaskModalRender(project) {
     newTaskModal.id = 'newTaskModal';
     newTaskModal.className = 'newTaskModal';
 
-    // Pop Modal
-    const popModal = document.createElement('popModal');
-    popModal.id = 'popModal';
-    popModal.className = 'popModal';
-    newTaskModal.appendChild(popModal);
+    // Pop Task Modal
+    const popTaskModal = document.createElement('div');
+    popTaskModal.id = 'popTaskModal';
+    popTaskModal.className = 'popTaskModal';
+    newTaskModal.appendChild(popTaskModal);
 
     // Project Title
     const projectSelected = document.createElement('h2');
     projectSelected.id = 'projectSelected';
     projectSelected.className = 'projectSelected';
     projectSelected.textContent = project;
-    popModal.appendChild(projectSelected);
+    popTaskModal.appendChild(projectSelected);
 
     // New Task
     const modalTitle = document.createElement('h3');
     modalTitle.className = 'modalTitle';
     modalTitle.textContent = 'Nueva Tarea';
-    popModal.appendChild(modalTitle);
+    popTaskModal.appendChild(modalTitle);
 
     // Form
     const modalForm = document.createElement('form');
     modalForm.id = 'modalForm';
     modalForm.className = 'modalForm';
-    popModal.appendChild(modalForm);
+    popTaskModal.appendChild(modalForm);
     
     // Task Title Input
     const taskTitle = document.createElement('input');
@@ -98,7 +98,6 @@ function newTaskModalRender(project) {
     cancelNewTaskButton.id = 'cancelNewTaskButton';
     cancelNewTaskButton.className = 'cancelNewTaskButton';
     cancelNewTaskButton.textContent = 'Cancelar';
-    cancelNewTaskButton.type = 'button';
     modalForm.appendChild(cancelNewTaskButton);
 
     // Submit Button
@@ -109,9 +108,10 @@ function newTaskModalRender(project) {
     submitTask.value = 'Crear Tarea';
     modalForm.appendChild(submitTask);
 
-    newTaskModal.style.display = 'block';
+    // Render
+    newTaskModal.style.display = 'none';
 
-    // Functions
+    // Secondary Functions
     cancelNewTaskButton.addEventListener('click', function() {
         plusTaskButton.classList.toggle('changeToCross');
         newTaskModal.style.display = 'none';

@@ -2,6 +2,7 @@
 
 import { createSideBar } from './sideBar';
 import { newTaskModalRender } from './newTaskModal';
+import { newProjectModalRender } from './newProjectModal';
 
 // Inputs
 
@@ -12,11 +13,12 @@ const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
 const currentProject = document.getElementById('currentProject');
 const content = document.getElementById('content');
-const lowPriority = document.getElementById('lowPrioritySelected');
-const mediumPriority = document.getElementById('mediumPriority');
-const highPriority = document.getElementById('highPriority');
+const newTaskModal = document.getElementById('newTaskModal');
+const newProjectModal = document.getElementById('newProjectModal');
 
 // Functions
+content.appendChild(newTaskModalRender(currentProject.innerText));
+content.appendChild(newProjectModalRender());
 
 burgerButton.addEventListener('click', function() {
     burgerButton.classList.toggle('change');
@@ -25,13 +27,15 @@ burgerButton.addEventListener('click', function() {
 
 newTaskButton.addEventListener('click', function() {
     plusTaskButton.classList.toggle('changeToCross');
-    content.appendChild(newTaskModalRender(currentProject.innerText));
+    newTaskModal.style.display = 'block';
 });
 
 newProjectButton.addEventListener('click', function() {
     plusProjectButton.classList.toggle('changeToCross');
+    newProjectModal.style.display = 'block';
 });
+
 
 // Exports
 
-export { plusTaskButton };
+export { plusTaskButton, plusProjectButton };
