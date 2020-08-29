@@ -12,6 +12,9 @@ const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
 const currentProject = document.getElementById('currentProject');
 const content = document.getElementById('content');
+const lowPriority = document.getElementById('lowPrioritySelected');
+const mediumPriority = document.getElementById('mediumPriority');
+const highPriority = document.getElementById('highPriority');
 
 // Functions
 

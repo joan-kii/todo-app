@@ -211,6 +211,7 @@ h1, h2, h3 {
     border: 1px solid #004e64;
     border-radius: 4px;
     text-indent: 5px;
+    outline: none;
 }
 
 .taskTitle {
@@ -256,33 +257,50 @@ h1, h2, h3 {
     padding: 0 3px;
 }
 
-.lowPriority, .mediumPriority, .highPriority {
+.lowPriority, .lowPrioritySelected,
+.mediumPriority, .mediumPrioritySelected,
+.highPriority, .highPrioritySelected {
     width: 42px;
     height: 70%;
     border: inherit;
     justify-self: center;
     align-self: center;
     margin-left: 2px;
-    opacity: 0.3;
+    font-size: 0.9em;
+    text-align: inherit;
 }
 
-.lowPriority:hover, .mediumPriority:hover, .highPriority:hover {
+.lowPriority, .mediumPriority, .highPriority {
+    opacity: 0.5;
+}
+
+.lowPrioritySelected, .mediumPrioritySelected, .highPrioritySelected {
     opacity: 1;
 }
 
-.lowPriority {
+.lowPriority:hover, .lowPrioritySelected, 
+.mediumPriority:hover, .mediumPrioritySelected,
+.highPriority:hover, .highPrioritySelected {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.lowPriority, .lowPrioritySelected {
     grid-area: lowPriority;
     background-color: yellow;
+    text-indent: 7px;
 }
 
-.mediumPriority {
+.mediumPriority, .mediumPrioritySelected {
     grid-area: mediumPriority;
     background-color: orange;
+    text-indent: 3px;
 }
 
-.highPriority {
+.highPriority, .highPrioritySelected {
     grid-area: highPriority;
     background-color: red;
+    text-indent: 8px;
 }
 
 .cancelNewTaskButton {

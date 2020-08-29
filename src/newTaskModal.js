@@ -72,20 +72,23 @@ function newTaskModalRender(project) {
 
     const lowPriority = document.createElement('span');
     lowPriority.id = 'lowPriority';
-    lowPriority.className = 'lowPriority';
-    lowPriority.value = '1';
+    lowPriority.className = 'lowPrioritySelected';
+    lowPriority.textContent = 'Baja';
+    lowPriority.setAttribute('value', '1');
     priority.appendChild(lowPriority);
 
     const mediumPriority = document.createElement('span');
     mediumPriority.id = 'mediumPriority';
     mediumPriority.className = 'mediumPriority';
-    lowPriority.value = '2';
+    mediumPriority.textContent = 'Media';
+    mediumPriority.setAttribute('value', '2');
     priority.appendChild(mediumPriority);
 
     const highPriority = document.createElement('span');
     highPriority.id = 'highPriority';
     highPriority.className = 'highPriority';
-    lowPriority.value = '3';
+    highPriority.textContent = 'Alta';
+    highPriority.setAttribute('value', '3');
     priority.appendChild(highPriority);
 
     modalForm.appendChild(priority);
@@ -108,9 +111,34 @@ function newTaskModalRender(project) {
 
     newTaskModal.style.display = 'block';
 
+    // Functions
     cancelNewTaskButton.addEventListener('click', function() {
         plusTaskButton.classList.toggle('changeToCross');
         newTaskModal.style.display = 'none';
+    });
+
+    lowPriority.addEventListener('click', function() {
+        if (lowPriority.className == 'lowPriority') {
+            lowPriority.className = 'lowPrioritySelected';
+            mediumPriority.className = 'mediumPriority';
+            highPriority.className = 'highPriority';
+        };
+    });
+
+    mediumPriority.addEventListener('click', function() {
+        if (mediumPriority.className == 'mediumPriority') {
+            mediumPriority.className = 'mediumPrioritySelected';
+            lowPriority.className = 'lowPriority';
+            highPriority.className = 'highPriority';
+        };
+    });
+
+    highPriority.addEventListener('click', function() {
+        if (highPriority.className == 'highPriority') {
+            highPriority.className = 'highPrioritySelected';
+            lowPriority.className = 'lowPriority';
+            mediumPriority.className = 'mediumPriority';
+        };
     });
 
     return newTaskModal;
