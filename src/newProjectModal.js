@@ -11,7 +11,7 @@ function newProjectModalRender() {
     newProjectModal.className = 'newProjectModal';
 
     // Pop Modal
-    const popProjectModal = document.createElement('div');
+    const popProjectModal = document.createElement('form');
     popProjectModal.id = 'popProjectModal';
     popProjectModal.className = 'popProjectModal';
     newProjectModal.appendChild(popProjectModal);
@@ -22,15 +22,16 @@ function newProjectModalRender() {
     projectTitle.className = 'projectTitle';
     projectTitle.required = true;
     projectTitle.maxLength = 20;
-    projectTitle.placeholder = 'Título';
-    newProjectModal.appendChild(projectTitle);
+    projectTitle.placeholder = 'Nombre Proyecto';
+    popProjectModal.appendChild(projectTitle);
 
     // Cancel Button
     const cancelButton = document.createElement('button');
     cancelButton.id = 'cancelButton';
     cancelButton.className = 'cancelButton';
+    cancelButton.type = 'button';
     cancelButton.textContent = 'Cancelar';
-    newProjectModal.appendChild(cancelButton);
+    popProjectModal.appendChild(cancelButton);
 
     // Submit Project Button
     const submitProject = document.createElement('input');
@@ -38,7 +39,7 @@ function newProjectModalRender() {
     submitProject.className = 'submitProject';
     submitProject.type = 'submit';
     submitProject.value = 'Crear Proyecto';
-    newProjectModal.appendChild(submitProject);
+    popProjectModal.appendChild(submitProject);
 
     // Secondary Functions
     cancelButton.addEventListener('click', function() {

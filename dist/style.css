@@ -205,7 +205,7 @@ h1, h2, h3 {
     margin: 0 10px 10px 10px;
 }
 
-.taskTitle, .notes, .dueDate, .priority {
+.taskTitle, .notes, .dueDate, .priority, .projectTitle {
     color: inherit;
     font-family: inherit;
     border: 1px solid #004e64;
@@ -311,7 +311,8 @@ h1, h2, h3 {
     grid-area: submit;
 }
 
-.cancelNewTaskButton, .submitTask {
+.cancelNewTaskButton, .submitTask, 
+.cancelButton, .submitProject {
     padding-top: 3px;
     border: none;
     border-radius: 5px;
@@ -323,10 +324,40 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
-.cancelNewTaskButton:hover, .submitTask:hover {
+.cancelNewTaskButton:hover, .submitTask:hover, 
+.cancelButton:hover, .submitProject:hover {
     color: #004e64;
     background-color: white;
     border: 4px solid #004e64;
 } 
 
 /* New Project Modal */
+.popProjectModal {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 60px 50px;
+    grid-template-areas: 
+        "projectTitle projectTitle"
+        "cancelButton submitProject";
+    column-gap: 30px;
+    row-gap: 10px;
+    justify-content: center;
+    margin: 0 10px 10px 10px;
+    padding-top: 100px;
+    height: 250px;
+}
+
+.projectTitle {
+    grid-area: projectTitle;
+    align-self: center;
+    height: 35px;
+    font-size: 1.4em;
+}
+
+.cancelButton {
+    grid-area: cancelButton;
+}
+
+.submitProject {
+    grid-area: submitProject;
+}

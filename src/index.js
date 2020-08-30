@@ -13,12 +13,13 @@ const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
 const currentProject = document.getElementById('currentProject');
 const content = document.getElementById('content');
-const newTaskModal = document.getElementById('newTaskModal');
-const newProjectModal = document.getElementById('newProjectModal');
+
+// Outputs
+
+content.appendChild(newProjectModalRender());
+content.appendChild(newTaskModalRender(currentProject.innerText));
 
 // Functions
-content.appendChild(newTaskModalRender(currentProject.innerText));
-content.appendChild(newProjectModalRender());
 
 burgerButton.addEventListener('click', function() {
     burgerButton.classList.toggle('change');
@@ -28,6 +29,7 @@ burgerButton.addEventListener('click', function() {
 newTaskButton.addEventListener('click', function() {
     plusTaskButton.classList.toggle('changeToCross');
     newTaskModal.style.display = 'block';
+    
 });
 
 newProjectButton.addEventListener('click', function() {

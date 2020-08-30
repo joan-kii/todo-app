@@ -97,6 +97,7 @@ function newTaskModalRender(project) {
     const cancelNewTaskButton = document.createElement('button');
     cancelNewTaskButton.id = 'cancelNewTaskButton';
     cancelNewTaskButton.className = 'cancelNewTaskButton';
+    cancelNewTaskButton.type = 'button';
     cancelNewTaskButton.textContent = 'Cancelar';
     modalForm.appendChild(cancelNewTaskButton);
 
@@ -107,9 +108,6 @@ function newTaskModalRender(project) {
     submitTask.type = 'submit';
     submitTask.value = 'Crear Tarea';
     modalForm.appendChild(submitTask);
-
-    // Render
-    newTaskModal.style.display = 'none';
 
     // Secondary Functions
     cancelNewTaskButton.addEventListener('click', function() {
