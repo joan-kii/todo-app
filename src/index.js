@@ -3,6 +3,7 @@
 import { createSideBar } from './sideBar';
 import { newTaskModalRender } from './newTaskModal';
 import { newProjectModalRender } from './newProjectModal';
+import { createProject } from './createProject';
 
 // Inputs
 
@@ -36,6 +37,8 @@ newProjectButton.addEventListener('click', function() {
     plusProjectButton.classList.toggle('changeToCross');
     newProjectModal.style.display = 'block';
 });
+
+
 
 
 // Exports
