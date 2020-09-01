@@ -34,20 +34,22 @@ newProjectButton.addEventListener('click', function() {
     newProjectModal.style.display = 'block';
 });
 
-let projectCount = 0;
+let projectCount;
 let currentProject;
 let userProjects = JSON.parse(localStorage.getItem('projects') || '[]');
 if (userProjects.length === 0) {
-    userProjects.push(createProject(projectCount++, 'Proyecto Prueba'));
+    projectCount = 0;
+    userProjects.push(createProject(projectCount + 1, 'Proyecto Prueba'));
     currentProject = userProjects[0];
-} else {
+} /* else {
     userProjects = userProjects.map(project => {
-        let newProject = createProject(projectCount++, project.name, project.tasks);
+        projectCount++;
+        let newProject = createProject(projectCount + 1, project.name, project.tasks);
         return newProject;
     })
     currentProject = userProjects[JSON.parse(localStorage.getItem('idProject') || '0')];
-
-}; 
+}; */ 
+console.log(userProjects)
 
 function saveLocalStorage() {
     let projectList = [];
@@ -66,8 +68,8 @@ function saveLocalStorage() {
 
 content.appendChild(newProjectModalRender());
 content.appendChild(newTaskModalRender(currentProjectName.innerText));
-currentProjectName.textContent = userProjects[0].name;
+currentProjectName.textContent = currentProject.name;
 
 // Exports
 
-export { plusTaskButton, plusProjectButton };
+export { plusTaskButton, plusProjectButton, userProjects, projectCount, saveLocalStorage };

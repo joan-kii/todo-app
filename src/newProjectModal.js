@@ -1,6 +1,7 @@
 // Imports
 
-import { plusProjectButton } from './index';
+import { plusProjectButton, userProjects, projectCount, saveLocalStorage} from './index';
+import { createProject } from './createProject';
 
 // Main Function
 
@@ -47,9 +48,16 @@ function newProjectModalRender() {
         newProjectModal.style.display = 'none';
     });
 
+    submitProject.addEventListener('click', function() {
+        userProjects.push(createProject(projectCount + 1, projectTitle.value));
+        /* saveLocalStorage(); */
+        plusProjectButton.classList.toggle('changeToCross');
+        newProjectModal.style.display = 'none';
+    });
+    
     return newProjectModal;
 
-}
+};
 
 // Exports
 
