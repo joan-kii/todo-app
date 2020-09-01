@@ -51,7 +51,7 @@ if (userProjects.length === 0) {
 }; */ 
 console.log(userProjects)
 
-function saveLocalStorage() {
+const saveLocalStorage = () => {
     let projectList = [];
     for (const prj of userProjects) {
         let projectObject = {

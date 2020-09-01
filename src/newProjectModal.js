@@ -2,10 +2,11 @@
 
 import { plusProjectButton, userProjects, projectCount, saveLocalStorage} from './index';
 import { createProject } from './createProject';
+import { set } from 'date-fns';
 
 // Main Function
 
-function newProjectModalRender() {
+const newProjectModalRender = () => {
     // Modal
     const newProjectModal = document.createElement('div');
     newProjectModal.id = 'newProjectModal';
@@ -49,10 +50,12 @@ function newProjectModalRender() {
     });
 
     submitProject.addEventListener('click', function() {
-        userProjects.push(createProject(projectCount + 1, projectTitle.value));
-        /* saveLocalStorage(); */
+        /*userProjects.push(*/createProject(projectCount + 1, projectTitle.value);
+        console.log('lol')/*
+        projectCount++;
+        saveLocalStorage();
         plusProjectButton.classList.toggle('changeToCross');
-        newProjectModal.style.display = 'none';
+        newProjectModal.style.display = 'none'; */
     });
     
     return newProjectModal;

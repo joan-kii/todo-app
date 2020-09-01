@@ -4,7 +4,7 @@ import { plusTaskButton } from './index';
 
 // Main Function
 
-function newTaskModalRender(project) {
+const newTaskModalRender = (project) => {
     // Modal
     const newTaskModal = document.createElement('div');
     newTaskModal.id = 'newTaskModal';

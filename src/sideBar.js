@@ -2,9 +2,9 @@
 
 const sideBar = document.getElementById('sideBar');
 
-// Functions
+// Function
 
-function createSideBar() {
+const createSideBar = () => {
     if (sideBar.style.width === '25%') {
         sideBar.style.width = '0';
         content.style.marginLeft = '0';
