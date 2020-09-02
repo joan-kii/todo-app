@@ -4,20 +4,19 @@ import { userProjects } from './index';
 
 // Function 
 
-const saveLocalStorage = () => {
+const saveNewProject = () => {
     let projectList = [];
-    console.log(userProjects)
     for (const prj of userProjects) {
         let projectObject = {
+            id: prj.id,
             name: prj.name,
             tasks: prj.tasks,
         };
         projectList.push(projectObject);
     };
-    localStorage.setItem('userProjects', JSON.stringify(projectlist));
-    localStorage.setItem('idProject', userProjects.indexOf(currentProject));
+    window.localStorage.setItem('userProjects', JSON.stringify(projectList));
 };
 
 // Exports 
 
-export { saveLocalStorage };
+export { saveNewProject };

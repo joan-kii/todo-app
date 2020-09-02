@@ -4,6 +4,7 @@ import { createSideBar } from './sideBar';
 import { newTaskModalRender } from './newTaskModal';
 import { newProjectModalRender } from './newProjectModal';
 import { createProject } from './createProject';
+import { saveNewProject } from './localStorage';
 
 // Inputs
 
@@ -33,21 +34,20 @@ newProjectButton.addEventListener('click', function() {
     newProjectModal.style.display = 'block';
 });
 
-let projectCount;
+let projectCount = 0;
 let currentProject;
-let userProjects = JSON.parse(localStorage.getItem('projects') || '[]');
+let userProjects = JSON.parse(window.localStorage.getItem("userProjects") || "[]");
+console.log(userProjects)
 if (userProjects.length === 0) {
     projectCount = 0;
     userProjects.push(createProject(projectCount + 1, 'Proyecto Prueba'));
+    projectCount++;
     currentProject = userProjects[0];
-} /* else {
-    userProjects = userProjects.map(project => {
-        projectCount++;
-        let newProject = createProject(projectCount + 1, project.name, project.tasks);
-        return newProject;
-    })
-    currentProject = userProjects[JSON.parse(localStorage.getItem('idProject') || '0')];
-}; */ 
+    saveNewProject();
+} else {
+    currentProject = userProjects[0];
+};
+console.log(window.localStorage)
 
 // Outputs
 
