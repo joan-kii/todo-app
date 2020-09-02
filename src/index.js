@@ -13,8 +13,7 @@ const newTaskButton = document.getElementById('newTaskIcon');
 const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
 const currentProjectName = document.getElementById('currentProject');
-const content = document.getElementById('content');                     // Seguir: guardar nuevo proyecto 
-                                                                        // con saveLocalStorage()
+const content = document.getElementById('content');
 
 // Functions
 
@@ -49,20 +48,6 @@ if (userProjects.length === 0) {
     })
     currentProject = userProjects[JSON.parse(localStorage.getItem('idProject') || '0')];
 }; */ 
-console.log(userProjects)
-
-const saveLocalStorage = () => {
-    let projectList = [];
-    for (const prj of userProjects) {
-        let projectObject = {
-            name: prj.name,
-            tasks: prj.tasks,
-        };
-        projectList.push(projectObject);
-    };
-    localStorage.setItem('userProjects', JSON.stringify(projectlist));
-    localStorage.setItem('idProject', userProjects.indexOf(currentProject));
-};
 
 // Outputs
 
@@ -72,4 +57,4 @@ currentProjectName.textContent = currentProject.name;
 
 // Exports
 
-export { plusTaskButton, plusProjectButton, userProjects, projectCount, saveLocalStorage };
+export { plusTaskButton, plusProjectButton, userProjects, projectCount };

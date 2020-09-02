@@ -49,13 +49,13 @@ const newProjectModalRender = () => {
         newProjectModal.style.display = 'none';
     });
 
-    submitProject.addEventListener('click', function() {
-        /*userProjects.push(*/createProject(projectCount + 1, projectTitle.value);
-        console.log('lol')/*
-        projectCount++;
+    submitProject.addEventListener('click', function(e) {
+        e.preventDefault();
+        userProjects.push(createProject(projectCount + 1, projectTitle.value));
+        projectCount++; 
         saveLocalStorage();
         plusProjectButton.classList.toggle('changeToCross');
-        newProjectModal.style.display = 'none'; */
+        newProjectModal.style.display = 'none';
     });
     
     return newProjectModal;

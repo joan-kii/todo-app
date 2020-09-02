@@ -1,5 +1,3 @@
-// Imports 
-
 // Function
 
 const createProject = (id, name, tasks = {}) => {
