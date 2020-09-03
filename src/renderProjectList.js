@@ -6,20 +6,27 @@ import { userProjects } from './index';
 
 const projectList = document.getElementById('projectList');
 
-// Outputs
+// Function 
 
-for (let sideBarProject of userProjects) {
-    let renderSideBarProject = document.createElement('div');
-    renderSideBarProject.className = 'renderSideProject';
-    
-    let editProject = document.createElement('button');
-    editProject.className = 'editProject';
-    renderSideBarProject.appendChild(editProject);
+const renderSideBarProject = () => {
+    for (let sideBarProject of userProjects) {
 
-    let projectName = document.createElement('h4');
-    projectName.className = ' projectName';
-    projectName.textContent = sideBarProject.name;
-    renderSideBarProject.appendChild(projectName);
+        let renderProjectItem = document.createElement('div');
+        renderProjectItem.className = 'renderProjectItem';
 
-    projectList.appendChild(renderSideBarProject);
-}
+        let editProject = document.createElement('button');
+        editProject.className = 'editProject';
+        renderProjectItem.appendChild(editProject);
+
+        let projectName = document.createElement('h4');
+        projectName.className = ' projectName';
+        projectName.textContent = sideBarProject.name;
+        renderProjectItem.appendChild(projectName);
+
+        projectList.appendChild(renderProjectItem);
+    };
+};
+
+// Exports 
+
+export { renderSideBarProject };

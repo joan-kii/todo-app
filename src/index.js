@@ -5,6 +5,7 @@ import { newTaskModalRender } from './newTaskModal';
 import { newProjectModalRender } from './newProjectModal';
 import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
+import { renderSideBarProject } from './renderProjectList';
 
 // Inputs
 
@@ -47,6 +48,7 @@ if (userProjects.length === 0) {
 } else {
     currentProject = userProjects[0];
 };
+renderSideBarProject();
 console.log(window.localStorage)
 
 // Outputs
