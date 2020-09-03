@@ -50,7 +50,7 @@ const newProjectModalRender = () => {
         newProjectModal.style.display = 'none';
     });
 
-    submitProject.addEventListener('click', function() {
+    submitProject.addEventListener('submit', function() {
         userProjects.push(createProject(projectCount + 1, projectTitle.value));
         projectCount++; 
         saveNewProject();

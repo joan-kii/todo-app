@@ -5,16 +5,16 @@ import { userProjects } from './index';
 // Function 
 
 const saveNewProject = () => {
-    let projectList = [];
+    let userProjectList = [];
     for (const prj of userProjects) {
         let projectObject = {
             id: prj.id,
             name: prj.name,
             tasks: prj.tasks,
         };
-        projectList.push(projectObject);
+        userProjectList.push(projectObject);
     };
-    window.localStorage.setItem('userProjects', JSON.stringify(projectList));
+    window.localStorage.setItem('userProjects', JSON.stringify(userProjectList));
 };
 
 // Exports 
