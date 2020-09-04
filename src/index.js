@@ -46,7 +46,7 @@ if (userProjects.length === 0) {
     currentProject = userProjects[0];
     saveNewProject();
 } else {
-    currentProject = userProjects[0];
+    currentProject = userProjects[(userProjects.length - 1)];
 };
 renderSideBarProject();
 console.log(window.localStorage)

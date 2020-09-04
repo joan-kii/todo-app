@@ -3,7 +3,6 @@
 import { plusProjectButton, userProjects, projectCount } from './index';
 import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
-import { set } from 'date-fns';
 
 // Main Function
 
@@ -50,12 +49,11 @@ const newProjectModalRender = () => {
         newProjectModal.style.display = 'none';
     });
 
-    submitProject.addEventListener('submit', function() {
+    submitProject.addEventListener('click', function() {
         userProjects.push(createProject(projectCount + 1, projectTitle.value));
         projectCount++; 
-        saveNewProject();
         plusProjectButton.classList.toggle('changeToCross');
-        newProjectModal.style.display = 'none';
+        saveNewProject();
     });
     
     return newProjectModal;
