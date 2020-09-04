@@ -211,7 +211,6 @@ h1, h2, h3 {
     border: 1px solid #004e64;
     border-radius: 4px;
     text-indent: 5px;
-    outline: none;
 }
 
 .taskTitle {
@@ -219,6 +218,12 @@ h1, h2, h3 {
     height: 35px;
     grid-area: title;
     font-size: 1.4em;
+}
+
+.taskTitle:focus, .notes:focus, 
+.dueDate:focus, .projectTitle:focus {
+    box-shadow: 2px 2px 8px 2px #004e64;
+    outline: none;
 }
 
 .notes {
@@ -360,4 +365,23 @@ h1, h2, h3 {
 
 .submitProject {
     grid-area: submitProject;
+}
+
+/* Render Project List */
+.renderProjectItem {
+    margin-left: 85px;
+}
+
+.editProject {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    background-color: #004e64;
+    border-radius: 50%;
+}
+
+.projectName {
+    display: inline-block;
+    font-size: 1.3em;
 }
