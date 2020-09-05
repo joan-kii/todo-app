@@ -12,6 +12,7 @@ const renderSideBarProject = () => {
     for (let sideBarProject of userProjects) {
 
         let renderProjectItem = document.createElement('div');
+        renderProjectItem.id = `renderProjectItem${sideBarProject.id}`;
         renderProjectItem.className = 'renderProjectItem';
 
         let editProject = document.createElement('div');

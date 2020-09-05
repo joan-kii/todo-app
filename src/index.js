@@ -35,10 +35,9 @@ newProjectButton.addEventListener('click', function() {
     newProjectModal.style.display = 'block';
 });
 
-let projectCount = 0;
+let projectCount;
 let currentProject;
 let userProjects = JSON.parse(window.localStorage.getItem("userProjects") || "[]");
-console.log(userProjects)
 if (userProjects.length === 0) {
     projectCount = 0;
     userProjects.push(createProject(projectCount + 1, 'Proyecto Prueba'));
@@ -47,15 +46,17 @@ if (userProjects.length === 0) {
     saveNewProject();
 } else {
     currentProject = userProjects[(userProjects.length - 1)];
+    projectCount = userProjects.length + 1;
 };
+
+console.log(userProjects);
 renderSideBarProject();
-console.log(window.localStorage)
 
 // Outputs
 
+currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(newTaskModalRender(currentProjectName.innerText));
-currentProjectName.textContent = currentProject.name;
 
 // Exports
 

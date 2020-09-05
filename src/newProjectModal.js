@@ -50,10 +50,13 @@ const newProjectModalRender = () => {
     });
 
     submitProject.addEventListener('click', function() {
-        userProjects.push(createProject(projectCount + 1, projectTitle.value));
-        projectCount++; 
-        plusProjectButton.classList.toggle('changeToCross');
-        saveNewProject();
+        if (projectTitle.value != '') {
+            console.log(projectCount)
+            userProjects.push(createProject(projectCount + 1, projectTitle.value));
+            projectCount++; 
+            plusProjectButton.classList.toggle('changeToCross');
+            saveNewProject();
+        };
     });
     
     return newProjectModal;
