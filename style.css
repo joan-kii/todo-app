@@ -158,7 +158,7 @@ h1, h2, h3 {
 }
 
 /* New Task Modal */
-.newTaskModal, .newProjectModal {
+.newTaskModal, .newProjectModal, .editProjectModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -399,3 +399,9 @@ h1, h2, h3 {
     font-size: 1.3em;
     cursor: pointer;
 }
+
+.projectName:hover {
+    text-decoration: underline;
+}
+
+/* Edit Project Modal */
