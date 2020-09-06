@@ -60,7 +60,6 @@ const newProjectModalRender = () => {
     });
     
     return newProjectModal;
-
 };
 
 // Exports

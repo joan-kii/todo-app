@@ -6,6 +6,7 @@ import { newProjectModalRender } from './newProjectModal';
 import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
 import { renderSideBarProject } from './renderProjectList';
+import { editProjectModalRender } from './editProjectModal';
 
 // Inputs
 
@@ -16,6 +17,8 @@ const plusProjectButton = document.getElementById('newProjectPlus');
 const newProjectButton = document.getElementById('newProjectIcon');
 const currentProjectName = document.getElementById('currentProject');
 const content = document.getElementById('content');
+const listProjectNames = document.getElementsByClassName('projectName');
+const listEditProjectButtons = document.getElementsByClassName('editProject');
 
 // Functions
 
@@ -49,8 +52,22 @@ if (userProjects.length === 0) {
     projectCount = userProjects.length + 1;
 };
 
-console.log(userProjects);
 renderSideBarProject();
+
+Array.prototype.forEach.call(listProjectNames, function(proj) {
+    proj.addEventListener('click', () => {
+        currentProjectName.textContent = proj.innerText;
+    });
+});
+
+Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
+    edit.addEventListener('click', function() {
+        let projectId = edit.closest('.renderProjectItem');
+        editProjectModalRender(projectId);
+        editProjectModal.style.display = 'block';
+        console.log(edit.closest('.renderProjectItem'));
+    });
+});
 
 // Outputs
 
@@ -60,4 +77,4 @@ content.appendChild(newTaskModalRender(currentProjectName.innerText));
 
 // Exports
 
-export { plusTaskButton, plusProjectButton, userProjects, projectCount };
+export { plusTaskButton, plusProjectButton, userProjects, projectCount, currentProject };

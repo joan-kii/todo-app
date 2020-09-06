@@ -1,6 +1,6 @@
 // Imports 
 
-import { userProjects } from './index';
+import { userProjects, currentProject } from './index';
 
 // Inputs 
 
@@ -32,7 +32,7 @@ const renderSideBarProject = () => {
         editProject.appendChild(editProjectDot_3);
 
         let projectName = document.createElement('p');
-        projectName.className = ' projectName';
+        projectName.className = 'projectName';
         projectName.textContent = sideBarProject.name;
         renderProjectItem.appendChild(projectName);
 
