@@ -21,10 +21,10 @@ const editProjectModalRender = (projectId) => {
     editProjectModal.appendChild(deleteProjectButton);
     
     // Secondary Functions
-    console.log('lol');
-    deleteProjectButton.addEventListener('click', () => {
-        console.log('lol');
-    });
+    
+    cancelEditButton.addEventListener('click', () => {
+        editProjectModal.style.display = 'none';
+    })
 
     return editProjectModal;
 };

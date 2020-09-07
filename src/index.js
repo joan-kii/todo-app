@@ -62,10 +62,18 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
 
 Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
     edit.addEventListener('click', function() {
-        let projectId = edit.closest('.renderProjectItem');
-        editProjectModalRender(projectId);
         editProjectModal.style.display = 'block';
-        console.log(edit.closest('.renderProjectItem'));
+        const deleteProjectButton = document.getElementById('deleteProjectButton');
+        deleteProjectButton.addEventListener('click', function() {
+            console.log(userProjects)
+            /*
+            CONTINUAR AQUÍ : 
+            eliminar projecto de 'userProjects' y 'localStorage'
+            usar id 
+            */
+            console.log(edit.closest('.renderProjectItem'));
+            editProjectModal.style.display = 'none';
+        });
     });
 });
 
@@ -74,6 +82,7 @@ Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
 currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(newTaskModalRender(currentProjectName.innerText));
+content.appendChild(editProjectModalRender());
 
 // Exports
 
