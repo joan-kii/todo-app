@@ -51,9 +51,8 @@ const newProjectModalRender = () => {
 
     submitProject.addEventListener('click', function() {
         if (projectTitle.value != '') {
-            console.log(projectCount)
-            userProjects.push(createProject(projectCount + 1, projectTitle.value));
-            projectCount++; 
+            userProjects.push(createProject(projectCount, projectTitle.value));
+            projectCount++;
             plusProjectButton.classList.toggle('changeToCross');
             saveNewProject();
         };

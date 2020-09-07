@@ -1,6 +1,6 @@
 // Imports 
 
-import { userProjects, currentProject } from './index';
+/* import { userProjects } from './index'; */
 
 // Inputs 
 
@@ -8,11 +8,12 @@ const projectList = document.getElementById('projectList');
 
 // Function 
 
-const renderSideBarProject = () => {
+const renderSideBarProject = (userProjects) => {
+    console.log(userProjects)
     for (let sideBarProject of userProjects) {
 
         let renderProjectItem = document.createElement('div');
-        renderProjectItem.id = sideBarProject.id;
+        renderProjectItem.id = sideBarProject.id - 1;
         renderProjectItem.className = 'renderProjectItem';
 
         let editProject = document.createElement('div');

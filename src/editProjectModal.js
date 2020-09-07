@@ -1,6 +1,6 @@
 // Function
 
-const editProjectModalRender = (projectId) => {
+const editProjectModalRender = () => {
     // Modal
     const editProjectModal = document.createElement('div');
     editProjectModal.id = 'editProjectModal';

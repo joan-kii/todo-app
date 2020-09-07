@@ -19,7 +19,7 @@ const currentProjectName = document.getElementById('currentProject');
 const content = document.getElementById('content');
 const listProjectNames = document.getElementsByClassName('projectName');
 const listEditProjectButtons = document.getElementsByClassName('editProject');
-
+const projectList = document.getElementById('projectList');
 // Functions
 
 burgerButton.addEventListener('click', function() {
@@ -38,13 +38,12 @@ newProjectButton.addEventListener('click', function() {
     newProjectModal.style.display = 'block';
 });
 
-let projectCount;
+let projectCount = 1;
 let currentProject;
 let userProjects = JSON.parse(window.localStorage.getItem("userProjects") || "[]");
 if (userProjects.length === 0) {
-    projectCount = 0;
-    userProjects.push(createProject(projectCount + 1, 'Proyecto Prueba'));
-    projectCount++;
+    userProjects.push(createProject(projectCount, 'Proyecto Prueba'));
+    projectCount += 1;
     currentProject = userProjects[0];
     saveNewProject();
 } else {
@@ -52,7 +51,7 @@ if (userProjects.length === 0) {
     projectCount = userProjects.length + 1;
 };
 
-renderSideBarProject();
+renderSideBarProject(userProjects);
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', () => {
@@ -63,16 +62,20 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
 Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
     edit.addEventListener('click', function() {
         editProjectModal.style.display = 'block';
+
         const deleteProjectButton = document.getElementById('deleteProjectButton');
+
         deleteProjectButton.addEventListener('click', function() {
-            console.log(userProjects)
-            /*
-            CONTINUAR AQUÍ : 
-            eliminar projecto de 'userProjects' y 'localStorage'
-            usar id 
-            */
-            console.log(edit.closest('.renderProjectItem'));
+            let index = edit.closest('.renderProjectItem').id;
+            userProjects.splice(index, 1);
             editProjectModal.style.display = 'none';
+            currentProject = userProjects[(userProjects.length - 1)];
+            currentProjectName.textContent = currentProject.name;
+            projectList.textContent = '';
+            saveNewProject();
+            renderSideBarProject(userProjects);
+            location.reload();
+            createSideBar();
         });
     });
 });
