@@ -11,6 +11,13 @@ const editProjectModalRender = () => {
     popEditProject.className = 'popEditProject';
     editProjectModal.appendChild(popEditProject);
 
+    const alertEditProject = document.createElement('p');
+    alertEditProject.id = 'alertEditProject';
+    alertEditProject.className = 'alertEditProject';
+    alertEditProject.textContent = 'Si eliminas este proyecto se perderán todas\
+     las tareas asociadas.\n¿Quieres eliminar el proyecto?'
+    popEditProject.appendChild(alertEditProject);
+
     const cancelEditButton = document.createElement('button');
     cancelEditButton.id = 'cancelEditButton';
     cancelEditButton.className = 'cancelEditButton';
