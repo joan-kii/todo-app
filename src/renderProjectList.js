@@ -1,6 +1,6 @@
-// Imports 
+// Imports
 
-/* import { userProjects } from './index'; */
+import { idDivProject } from './newProjectModal';
 
 // Inputs 
 
@@ -13,7 +13,7 @@ const renderSideBarProject = (userProjects) => {
     for (let sideBarProject of userProjects) {
 
         let renderProjectItem = document.createElement('div');
-        renderProjectItem.id = sideBarProject.id - 1;
+        renderProjectItem.id = idDivProject;
         renderProjectItem.className = 'renderProjectItem';
 
         let editProject = document.createElement('div');

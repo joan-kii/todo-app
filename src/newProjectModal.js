@@ -6,6 +6,8 @@ import { saveNewProject } from './localStorage';
 
 // Main Function
 
+let idDivProject = '';
+
 const newProjectModalRender = () => {
     // Modal
     const newProjectModal = document.createElement('div');
@@ -51,6 +53,7 @@ const newProjectModalRender = () => {
 
     submitProject.addEventListener('click', function() {
         if (projectTitle.value != '') {
+            idDivProject = projectTitle.value;
             userProjects.push(createProject(projectCount, projectTitle.value));
             projectCount++;
             plusProjectButton.classList.toggle('changeToCross');
@@ -58,9 +61,9 @@ const newProjectModalRender = () => {
         };
     });
     
-    return newProjectModal;
+    return { newProjectModal, idDivProject };
 };
 
 // Exports
 
-export { newProjectModalRender };
+export { newProjectModalRender, idDivProject };
