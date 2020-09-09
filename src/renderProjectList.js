@@ -1,7 +1,3 @@
-// Imports
-
-import { idDivProject } from './newProjectModal';
-
 // Inputs 
 
 const projectList = document.getElementById('projectList');
@@ -13,7 +9,7 @@ const renderSideBarProject = (userProjects) => {
     for (let sideBarProject of userProjects) {
 
         let renderProjectItem = document.createElement('div');
-        renderProjectItem.id = idDivProject;
+        renderProjectItem.id = sideBarProject.name;
         renderProjectItem.className = 'renderProjectItem';
 
         let editProject = document.createElement('div');

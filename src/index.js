@@ -66,8 +66,12 @@ Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
         const deleteProjectButton = document.getElementById('deleteProjectButton');
 
         deleteProjectButton.addEventListener('click', function() {
-            let index = edit.closest('.renderProjectItem').id;
-            userProjects.splice(index, 1);
+            let projectToDelete = edit.closest('.renderProjectItem').id;
+            for (let prj of userProjects) {
+                if (prj.name == projectToDelete) {
+                    userProjects.splice(userProjects.indexOf(prj), 1);
+                };
+            };
             editProjectModal.style.display = 'none';
             currentProject = userProjects[(userProjects.length - 1)];
             currentProjectName.textContent = currentProject.name;
