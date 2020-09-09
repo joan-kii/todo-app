@@ -171,7 +171,7 @@ h1, h2, h3 {
     background-color: rgba(0,0,0,0.4);
 }
 
-.popTaskModal, .popProjectModal {
+.popTaskModal, .popProjectModal, .popEditProject {
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -317,7 +317,8 @@ h1, h2, h3 {
 }
 
 .cancelNewTaskButton, .submitTask, 
-.cancelButton, .submitProject {
+.cancelButton, .submitProject, 
+.deleteProjectButton, .cancelEditButton {
     padding-top: 3px;
     border: none;
     border-radius: 5px;
@@ -330,7 +331,8 @@ h1, h2, h3 {
 }
 
 .cancelNewTaskButton:hover, .submitTask:hover, 
-.cancelButton:hover, .submitProject:hover {
+.cancelButton:hover, .submitProject:hover,
+.deleteProjectButton:hover, .cancelEditButton:hover {
     color: #004e64;
     background-color: white;
     border: 4px solid #004e64;
@@ -405,3 +407,9 @@ h1, h2, h3 {
 }
 
 /* Edit Project Modal */
+.popEditProject {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 60px;
+    padding: 50px 30px;
+}
