@@ -1,9 +1,9 @@
-// Imports 
-
 // Function
 
-const createTodo = (title, description, dueDate, priority, notes, checklist) => {
-    return { title, description, dueDate, priority, notes, checklist };
+const createTodo = (title, notes, dueDate, priority) => {
+    const checklist = false;
+    console.log({ title, notes, dueDate, priority, checklist })
+    return { title, notes, dueDate, priority, checklist };
     };
 
 // Exports

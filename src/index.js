@@ -93,4 +93,5 @@ content.appendChild(editProjectModalRender());
 
 // Exports
 
-export { plusTaskButton, plusProjectButton, userProjects, projectCount, currentProject };
+export { plusTaskButton, plusProjectButton, userProjects, 
+    projectCount, currentProject, currentProjectName, content };

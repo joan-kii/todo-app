@@ -1,6 +1,7 @@
 // Imports 
 
 import { plusTaskButton } from './index';
+import { createTodo } from './createTodo';
 
 // Main Function
 
@@ -42,6 +43,7 @@ const newTaskModalRender = (project) => {
     taskTitle.required = true;
     taskTitle.maxLength = 20;
     taskTitle.placeholder = 'Título';
+    let todoTitle = taskTitle.value;
     modalForm.appendChild(taskTitle);
 
     // Notes Input
@@ -49,6 +51,7 @@ const newTaskModalRender = (project) => {
     notes.id = 'notes';
     notes.className = 'notes';
     notes.placeholder = 'Descripción';
+    let todoNotes = notes.value;
     modalForm.appendChild(notes);
 
     // Due Date Input
@@ -57,6 +60,7 @@ const newTaskModalRender = (project) => {
     dueDate.className = 'dueDate';
     dueDate.type = 'date';
     dueDate.placeholder = 'Fecha';
+    let todoDueDate = dueDate.value;
     modalForm.appendChild(dueDate);
 
     // Priority Input
@@ -115,11 +119,13 @@ const newTaskModalRender = (project) => {
         newTaskModal.style.display = 'none';
     });
 
+    let todoPriority;
     lowPriority.addEventListener('click', function() {
         if (lowPriority.className == 'lowPriority') {
             lowPriority.className = 'lowPrioritySelected';
             mediumPriority.className = 'mediumPriority';
             highPriority.className = 'highPriority';
+            todoPriority = 1;
         };
     });
 
@@ -128,6 +134,7 @@ const newTaskModalRender = (project) => {
             mediumPriority.className = 'mediumPrioritySelected';
             lowPriority.className = 'lowPriority';
             highPriority.className = 'highPriority';
+            todoPriority = 2;
         };
     });
 
@@ -136,8 +143,15 @@ const newTaskModalRender = (project) => {
             highPriority.className = 'highPrioritySelected';
             lowPriority.className = 'lowPriority';
             mediumPriority.className = 'mediumPriority';
+            todoPriority = 3;
         };
     });
+
+    submitTask.addEventListener('click', function() {
+        console.log('lol')
+        let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
+        console.log(newTaskToProject);
+    })
 
     return newTaskModal;
 };

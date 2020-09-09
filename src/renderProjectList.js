@@ -4,8 +4,7 @@ const projectList = document.getElementById('projectList');
 
 // Function 
 
-const renderSideBarProject = (userProjects) => {
-    console.log(userProjects)
+const renderSideBarProject = (userProjects) => { 
     for (let sideBarProject of userProjects) {
 
         let renderProjectItem = document.createElement('div');
