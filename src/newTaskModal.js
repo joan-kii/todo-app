@@ -1,7 +1,8 @@
 // Imports 
 
-import { plusTaskButton } from './index';
+import { plusTaskButton, userProjects } from './index';
 import { createTodo } from './createTodo';
+import { saveNewProject } from './localStorage';
 
 // Main Function
 
@@ -43,7 +44,6 @@ const newTaskModalRender = (project) => {
     taskTitle.required = true;
     taskTitle.maxLength = 20;
     taskTitle.placeholder = 'Título';
-    let todoTitle = taskTitle.value;
     modalForm.appendChild(taskTitle);
 
     // Notes Input
@@ -51,7 +51,6 @@ const newTaskModalRender = (project) => {
     notes.id = 'notes';
     notes.className = 'notes';
     notes.placeholder = 'Descripción';
-    let todoNotes = notes.value;
     modalForm.appendChild(notes);
 
     // Due Date Input
@@ -60,7 +59,6 @@ const newTaskModalRender = (project) => {
     dueDate.className = 'dueDate';
     dueDate.type = 'date';
     dueDate.placeholder = 'Fecha';
-    let todoDueDate = dueDate.value;
     modalForm.appendChild(dueDate);
 
     // Priority Input
@@ -78,21 +76,18 @@ const newTaskModalRender = (project) => {
     lowPriority.id = 'lowPriority';
     lowPriority.className = 'lowPrioritySelected';
     lowPriority.textContent = 'Baja';
-    lowPriority.setAttribute('value', '1');
     priority.appendChild(lowPriority);
 
     const mediumPriority = document.createElement('span');
     mediumPriority.id = 'mediumPriority';
     mediumPriority.className = 'mediumPriority';
     mediumPriority.textContent = 'Media';
-    mediumPriority.setAttribute('value', '2');
     priority.appendChild(mediumPriority);
 
     const highPriority = document.createElement('span');
     highPriority.id = 'highPriority';
     highPriority.className = 'highPriority';
     highPriority.textContent = 'Alta';
-    highPriority.setAttribute('value', '3');
     priority.appendChild(highPriority);
 
     modalForm.appendChild(priority);
@@ -148,10 +143,20 @@ const newTaskModalRender = (project) => {
     });
 
     submitTask.addEventListener('click', function() {
-        console.log('lol')
-        let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
-        console.log(newTaskToProject);
-    })
+        let todoTitle = taskTitle.value;
+        if (todoTitle != '') {
+            let todoNotes = notes.value;
+            let todoDueDate = dueDate.value;
+            let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
+            for (let prjt of userProjects) {
+                if (prjt.name == project) {
+                    console.log('lol')
+                    prjt.tasks.push(newTaskToProject);
+                    saveNewProject();
+                };
+            }
+        };
+    });
 
     return newTaskModal;
 };

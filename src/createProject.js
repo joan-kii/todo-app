@@ -1,6 +1,6 @@
 // Function
 
-const createProject = (id, name, tasks = {}) => {
+const createProject = (id, name, tasks = []) => {
     let index = 0;
     const addTask = (task) => {
         tasks[index] = task;
