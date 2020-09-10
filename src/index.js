@@ -7,6 +7,7 @@ import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
 import { renderSideBarProject } from './renderProjectList';
 import { editProjectModalRender } from './editProjectModal';
+import { taskListProject, renderTaskList } from './renderTaskList';
 
 // Inputs
 
@@ -90,6 +91,8 @@ currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(newTaskModalRender(currentProjectName.innerText));
 content.appendChild(editProjectModalRender());
+content.appendChild(taskListProject);
+renderTaskList(userProjects);
 
 // Exports
 

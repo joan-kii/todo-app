@@ -1,20 +1,81 @@
-// Imports 
+// Imports
 
-import { content } from './index';
+import { currentProjectName } from './index';
 
-// Function 
+// Input
+////// BUG ////////
+const taskListProject = document.createElement('div');
+taskListProject.id = `taskList_${currentProjectName.innerText}`;
+taskListProject.className = 'taskListProject';
 
-const renderTaskList = (currentProjectName, userProjects) => {
+// Function
 
-    const taskListItem = document.createElement('div');
-    taskListItem.id = currentprojectName.textContent;
-    taskListItem.className = 'taskListItem';
+const renderTaskList = (userProjects) => {
 
     for (let actualProject of userProjects) {
-        if (actualProject.name === currentProjectName.textContent){
+        if (actualProject.name === currentProjectName.innerText){
             for (let task of actualProject.tasks) {
-                console.log('lol')
+
+                let taskListItem = document.createElement('div');
+                taskListItem.id = task.name;
+                taskListItem.className = 'taskListItem';
+                taskListProject.appendChild(taskListItem);
+
+                let editTask = document.createElement('div');
+                editTask.className = 'editProject';
+                taskListItem.appendChild(editTask);
+
+                let editTaskDot_1 = document.createElement('div');
+                editTaskDot_1.className = 'editProjectDot_1';
+                editTask.appendChild(editTaskDot_1);
+
+                let editTaskDot_2 = document.createElement('div');
+                editTaskDot_2.className = 'editProjectDot_2';
+                editTask.appendChild(editTaskDot_2);
+
+                let editTaskDot_3 = document.createElement('div');
+                editTaskDot_3.className = 'editProjectDot_3';
+                editTask.appendChild(editTaskDot_3);
+
+                let taskItemTitle = document.createElement('h3');
+                taskItemTitle.className = 'taskItemTitle';
+                taskItemTitle.textContent = task.name;
+                taskListItem.appendChild(taskItemTitle);
+
+                let taskItemDate = document.createElement('p');
+                taskItemDate.className = 'taskItemDate';
+                taskItemDate.textContent = task.dueDate;
+                taskListItem.appendChild(taskItemDate);
+
+                let taskItemPriority = document.createElement('p');
+                taskItemPriority.className = 'taskItemPriority';
+                if (task.priority == 1) {
+                    taskItemPriority.textContent = 'Prioridad Baja';
+                    taskItemPriority.style.background = 'yellow';
+                } else if (task.priority == 2) {
+                    taskItemPriority.textContent = 'Prioridad Media';
+                    taskItemPriority.style.background = 'orange';
+                } else {
+                    taskItemPriority.textContent = 'Prioridad Alta';
+                    taskItemPriority.style.background = 'red';
+                };
+                taskListItem.appendChild(taskItemPriority);
+
+                let taskItemCheck = document.createElement('input');
+                taskItemCheck.className = 'taskItemCheck';
+                taskItemCheck.type = 'checkbox';
+                taskItemCheck.value = 'Completada';
+                taskListItem.appendChild(taskItemCheck);
+
+                let taskItemNotes = document.createElement('p');
+                taskItemNotes.className = 'taskItemNotes';
+                taskItemNotes.textContent = task.notes;
+                taskListItem.appendChild(taskItemNotes);
             }
         };
     }
 };
+
+// Exports 
+
+export { taskListProject, renderTaskList };

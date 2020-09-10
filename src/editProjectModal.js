@@ -1,3 +1,7 @@
+// Imports
+
+import { currentProjectName } from './index';
+
 // Function
 
 const editProjectModalRender = () => {
@@ -14,8 +18,8 @@ const editProjectModalRender = () => {
     const alertEditProject = document.createElement('p');
     alertEditProject.id = 'alertEditProject';
     alertEditProject.className = 'alertEditProject';
-    alertEditProject.textContent = 'Si eliminas este proyecto se perderán todas\
-     las tareas asociadas.\n¿Quieres eliminar el proyecto?'
+    alertEditProject.textContent = `Si eliminas este proyecto se perderán todas\
+     las tareas asociadas.\n¿Quieres eliminar el proyecto "${currentProjectName.innerText}"?`
     popEditProject.appendChild(alertEditProject);
 
     const cancelEditButton = document.createElement('button');
@@ -34,7 +38,7 @@ const editProjectModalRender = () => {
     
     // Secondary Functions
     
-    cancelEditButton.addEventListener('click', () => {
+    cancelEditButton.addEventListener('click', function() {
         editProjectModal.style.display = 'none';
     })
 
