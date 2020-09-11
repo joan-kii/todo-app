@@ -3,25 +3,26 @@
 import { currentProjectName } from './index';
 
 // Input
-////// BUG ////////
-const taskListProject = document.createElement('div');
-taskListProject.id = `taskList_${currentProjectName.innerText}`;
-taskListProject.className = 'taskListProject';
 
+const taskListProject = document.querySelector('.taskListProject');
+console.log(taskListProject)
 // Function
 
 const renderTaskList = (userProjects) => {
+
+    taskListProject.id = `taskList_${currentProjectName.innerText}`;
 
     for (let actualProject of userProjects) {
         if (actualProject.name === currentProjectName.innerText){
             for (let task of actualProject.tasks) {
 
                 let taskListItem = document.createElement('div');
-                taskListItem.id = task.name;
+                taskListItem.id = task.title;
                 taskListItem.className = 'taskListItem';
                 taskListProject.appendChild(taskListItem);
 
                 let editTask = document.createElement('div');
+                editTask.id = 'editTask';
                 editTask.className = 'editProject';
                 taskListItem.appendChild(editTask);
 
@@ -39,7 +40,7 @@ const renderTaskList = (userProjects) => {
 
                 let taskItemTitle = document.createElement('h3');
                 taskItemTitle.className = 'taskItemTitle';
-                taskItemTitle.textContent = task.name;
+                taskItemTitle.textContent = task.title;
                 taskListItem.appendChild(taskItemTitle);
 
                 let taskItemDate = document.createElement('p');

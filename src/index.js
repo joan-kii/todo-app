@@ -91,7 +91,6 @@ currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(newTaskModalRender(currentProjectName.innerText));
 content.appendChild(editProjectModalRender());
-content.appendChild(taskListProject);
 renderTaskList(userProjects);
 
 // Exports
