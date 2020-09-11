@@ -151,8 +151,9 @@ h1, h2, h3 {
 /* Content */
 .content {
     position: absolute;
+    justify-content: center;
     top: 91px;
-    width: auto;
+    width: 100%;
     height: auto;
     transition: 0.4s;
 }
@@ -439,38 +440,47 @@ h1, h2, h3 {
 .taskListProject {
     display: flex;
     flex-direction: column;
-    margin-left: 300px;
+    margin-left: 30%;
 }
 
 .taskListItem {
     display: grid;
     height: 100px;
-    width: 100%;
+    width: 60%;
     margin-top: 2em;
     justify-content: center;
+    align-content: center;
     border: 2px solid #004e64;
     border-radius: 10px;
     grid-template-columns: 40px 180px 180px 180px 40px;
     grid-template-rows: 40px 40px;
     grid-template-areas: 
         "editTask taskTitle taskDate taskPriority taskCheck"
-        "taskNotes taskNotes taskNotes taskNotes taskNotes";
+        "editTask taskNotes taskNotes taskNotes taskNotes";
 }
 
 #editTask {
     grid-area: editTask;
+    margin-top: 25px;
 }
 
 .taskItemTitle {
     grid-area: taskTitle;
+    align-self: end;
 }
 
 .taskItemDate {
     grid-area: taskDate;
 }
 
-.taskitemPriority {
+.taskItemPriority {
     grid-area: taskPriority;
+    height: 2em;
+    width: 8em;
+    margin: 0;
+    align-self: end;
+    border: 1px solid #004e64;
+    border-radius: 5px;
 }
 
 .taskItemCheck {
@@ -479,4 +489,10 @@ h1, h2, h3 {
 
 .taskItemNotes {
     grid-area: taskNotes;
+}
+
+#editTask, .taskItemTitle, .taskItemDate,
+.taskItemPriority, .taskItemCheck, .taskItemNotes {
+    font-size: 1.25em;
+    text-align: center;
 }
