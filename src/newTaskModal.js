@@ -3,6 +3,7 @@
 import { plusTaskButton, userProjects } from './index';
 import { createTodo } from './createTodo';
 import { saveNewProject } from './localStorage';
+import { format } from 'date-fns';
 
 // Main Function
 
@@ -114,13 +115,11 @@ const newTaskModalRender = (project) => {
         newTaskModal.style.display = 'none';
     });
 
-    let todoPriority;
     lowPriority.addEventListener('click', function() {
         if (lowPriority.className == 'lowPriority') {
             lowPriority.className = 'lowPrioritySelected';
             mediumPriority.className = 'mediumPriority';
             highPriority.className = 'highPriority';
-            todoPriority = 1;
         };
     });
 
@@ -129,7 +128,6 @@ const newTaskModalRender = (project) => {
             mediumPriority.className = 'mediumPrioritySelected';
             lowPriority.className = 'lowPriority';
             highPriority.className = 'highPriority';
-            todoPriority = 2;
         };
     });
 
@@ -138,7 +136,6 @@ const newTaskModalRender = (project) => {
             highPriority.className = 'highPrioritySelected';
             lowPriority.className = 'lowPriority';
             mediumPriority.className = 'mediumPriority';
-            todoPriority = 3;
         };
     });
 
@@ -147,10 +144,17 @@ const newTaskModalRender = (project) => {
         if (todoTitle != '') {
             let todoNotes = notes.value;
             let todoDueDate = dueDate.value;
+            let todoPriority;
+            if (lowPriority.className =='lowPrioritySelected') {
+                todoPriority = 1;
+            } else if (mediumPriority.className == 'mediumPrioritySelected') {
+                todoPriority = 2;
+            } else if (highPriority.className == 'highPrioritySelected') {
+                todoPriority = 3;
+            };
             let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
             for (let prjt of userProjects) {
                 if (prjt.name == project) {
-                    console.log('lol')
                     prjt.tasks.push(newTaskToProject);
                     saveNewProject();
                 };

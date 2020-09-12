@@ -5,7 +5,7 @@ import { currentProjectName } from './index';
 // Input
 
 const taskListProject = document.querySelector('.taskListProject');
-console.log(taskListProject)
+
 // Function
 
 const renderTaskList = (userProjects) => {
@@ -62,10 +62,16 @@ const renderTaskList = (userProjects) => {
                 };
                 taskListItem.appendChild(taskItemPriority);
 
+                let labelTaskItemCheck = document.createElement('label');
+                labelTaskItemCheck.className = 'labelTaskItemCheck';
+                labelTaskItemCheck.setAttribute('for', 'taskItemCheck');
+                labelTaskItemCheck.textContent = 'Tarea Completada';
+                taskListItem.appendChild(labelTaskItemCheck);
+
                 let taskItemCheck = document.createElement('input');
+                taskItemCheck.id = 'taskItemCheck;'
                 taskItemCheck.className = 'taskItemCheck';
                 taskItemCheck.type = 'checkbox';
-                taskItemCheck.value = 'Completada';
                 taskListItem.appendChild(taskItemCheck);
 
                 let taskItemNotes = document.createElement('p');

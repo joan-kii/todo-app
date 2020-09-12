@@ -84,7 +84,7 @@ Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
         });
     });
 });
-console.log(userProjects);
+
 // Outputs
 
 currentProjectName.textContent = currentProject.name;
