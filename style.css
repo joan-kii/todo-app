@@ -440,64 +440,71 @@ h1, h2, h3 {
 .taskListProject {
     display: flex;
     flex-direction: column;
-    margin-left: 25%;
+    margin-left: 30%;
 }
 
 .taskListItem {
     display: grid;
-    height: 100px;
-    width: 65%;
+    height: 150px;
+    width: 55%;
     margin-top: 2em;
     justify-content: center;
     align-content: center;
     border: 2px solid #004e64;
     border-radius: 10px;
-    grid-template-columns: 40px 180px 180px 180px 180px 40px;
-    grid-template-rows: 40px 40px;
+    grid-template-columns: 40px 180px 180px 180px 40px;
+    grid-template-rows: 45px 40px 40px;
     grid-template-areas: 
-        "editTask taskTitle taskDate taskPriority labelTaskCheck taskCheck"
-        "editTask taskNotes taskNotes taskNotes labelTaskCheck taskCheck";
+        "editTask taskTitle taskTitle taskTitle taskTitle"
+        "editTask taskDate taskPriority labelTaskCheck taskCheck"
+        "editTask taskNotes taskNotes taskNotes taskNotes";
 }
 
 #editTask {
     grid-area: editTask;
-    margin-top: 30px;
+    margin: 45px 10px;
 }
 
 .taskItemTitle {
     grid-area: taskTitle;
-    align-self: end;
+    font-size: 1.5em;
 }
 
 .taskItemDate {
     grid-area: taskDate;
+    margin: 0;
+    font-size: 1.3em;
 }
 
 .taskItemPriority {
     grid-area: taskPriority;
+    text-decoration: underline;
+    text-decoration-style: double;
     height: 2em;
     width: 8em;
     margin: 0;
-    align-self: end;
-    border: 1px solid #004e64;
     border-radius: 5px;
+    font-size: 1.3em;
 }
 
 .labelTaskItemCheck {
     grid-area: labelTaskCheck;
+    font-size: 1.3em;
 }
 
 .taskItemCheck {
     grid-area: taskCheck;
+    margin-top: 7px;
 }
 
 .taskItemNotes {
     grid-area: taskNotes;
+    font-size: 1.1em;
 }
 
 #editTask, .taskItemTitle, .taskItemDate,
 .taskItemPriority, .taskItemCheck, .taskItemNotes,
 .labelTaskItemCheck {
-    font-size: 1.25em;
+    display: inline-block;
     text-align: center;
 }
