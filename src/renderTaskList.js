@@ -11,6 +11,7 @@ const taskListProject = document.querySelector('.taskListProject');
 const renderTaskList = (userProjects) => {
 
     taskListProject.id = `taskList_${currentProjectName.innerText}`;
+    taskListProject.textContent = '';
 
     for (let actualProject of userProjects) {
         if (actualProject.name === currentProjectName.innerText){
@@ -69,7 +70,7 @@ const renderTaskList = (userProjects) => {
                 taskListItem.appendChild(labelTaskItemCheck);
 
                 let taskItemCheck = document.createElement('input');
-                taskItemCheck.id = 'taskItemCheck;'
+                taskItemCheck.id = 'taskItemCheck'
                 taskItemCheck.className = 'taskItemCheck';
                 taskItemCheck.type = 'checkbox';
                 taskListItem.appendChild(taskItemCheck);

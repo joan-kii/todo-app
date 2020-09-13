@@ -57,6 +57,7 @@ renderSideBarProject(userProjects);
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', () => {
         currentProjectName.textContent = proj.innerText;
+        renderTaskList(userProjects);
     });
 });
 

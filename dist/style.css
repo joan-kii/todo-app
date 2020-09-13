@@ -450,8 +450,9 @@ h1, h2, h3 {
     margin-top: 2em;
     justify-content: center;
     align-content: center;
-    border: 2px solid #004e64;
+    border: 3px solid #004e64;
     border-radius: 10px;
+    box-shadow: 0 6px 15px 0 rgba(0,0,0,0.07);
     grid-template-columns: 40px 180px 180px 180px 40px;
     grid-template-rows: 45px 40px 40px;
     grid-template-areas: 
@@ -494,7 +495,16 @@ h1, h2, h3 {
 
 .taskItemCheck {
     grid-area: taskCheck;
-    margin-top: 7px;
+    margin-top: 5px;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    border: 1px solid #004e64;
+    border-radius: 25%;
+}
+
+.taskItemCheck:hover {
+    box-shadow: 1px 1px 2px 1px #004e64;
 }
 
 .taskItemNotes {
