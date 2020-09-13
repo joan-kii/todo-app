@@ -3,7 +3,8 @@
 import { plusTaskButton, userProjects } from './index';
 import { createTodo } from './createTodo';
 import { saveNewProject } from './localStorage';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
+import { es } from 'date-fns/locale'
 
 // Main Function
 
@@ -143,7 +144,7 @@ const newTaskModalRender = (project) => {
         let todoTitle = taskTitle.value;
         if (todoTitle != '') {
             let todoNotes = notes.value;
-            let todoDueDate = dueDate.value;
+            let todoDueDate = format(new Date(dueDate.value), "dd MMMM yyyy", {locale: es});
             let todoPriority;
             if (lowPriority.className =='lowPrioritySelected') {
                 todoPriority = 1;

@@ -52,13 +52,13 @@ const renderTaskList = (userProjects) => {
                 taskItemPriority.className = 'taskItemPriority';
                 if (task.priority == 1) {
                     taskItemPriority.textContent = 'Prioridad Baja';
-                    taskItemPriority.style.background = 'yellow';
+                    taskItemPriority.style.textDecorationColor = 'yellow';
                 } else if (task.priority == 2) {
                     taskItemPriority.textContent = 'Prioridad Media';
-                    taskItemPriority.style.background = 'orange';
+                    taskItemPriority.style.textDecorationColor = 'orange';
                 } else {
                     taskItemPriority.textContent = 'Prioridad Alta';
-                    taskItemPriority.style.background = 'red';
+                    taskItemPriority.style.textDecorationColor = 'red';
                 };
                 taskListItem.appendChild(taskItemPriority);
 
