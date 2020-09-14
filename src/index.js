@@ -8,6 +8,7 @@ import { saveNewProject } from './localStorage';
 import { renderSideBarProject } from './renderProjectList';
 import { editProjectModalRender } from './editProjectModal';
 import { taskListProject, renderTaskList } from './renderTaskList';
+import { editTaskModalRender } from './editTaskModal';
 
 // Inputs
 
@@ -20,7 +21,9 @@ const currentProjectName = document.getElementById('currentProject');
 const content = document.getElementById('content');
 const listProjectNames = document.getElementsByClassName('projectName');
 const listEditProjectButtons = document.getElementsByClassName('editProject');
+const listEditTaskButtons = document.getElementsByClassName('editTask');
 const projectList = document.getElementById('projectList');
+
 // Functions
 
 burgerButton.addEventListener('click', function() {
@@ -61,14 +64,14 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
     });
 });
 
-Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
-    edit.addEventListener('click', function() {
+Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
+    editProj.addEventListener('click', function() {
         editProjectModal.style.display = 'block';
 
         const deleteProjectButton = document.getElementById('deleteProjectButton');
 
         deleteProjectButton.addEventListener('click', function() {
-            let projectToDelete = edit.closest('.renderProjectItem').id;
+            let projectToDelete = editProj.closest('.renderProjectItem').id;
             for (let prj of userProjects) {
                 if (prj.name == projectToDelete) {
                     userProjects.splice(userProjects.indexOf(prj), 1);
@@ -85,6 +88,19 @@ Array.prototype.forEach.call(listEditProjectButtons, function(edit) {
         });
     });
 });
+
+Array.prototype.forEach.call(listEditTaskButtons, function(edit) {
+    edit.addEventListener('click', function() {
+        editTaskModal.style.display = 'block';
+
+        const deleteTaskButton = document.getElementById('deleteTaskButton');
+
+        deleteTaskButton.addEventListener('click', function() {
+            let taskToDelete = edit.title;
+            console.log(taskToDelete);
+        })
+    })
+})
 
 // Outputs
 

@@ -159,7 +159,8 @@ h1, h2, h3 {
 }
 
 /* New Task Modal */
-.newTaskModal, .newProjectModal, .editProjectModal {
+.newTaskModal, .newProjectModal, 
+.editProjectModal, .editTaskModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -376,7 +377,7 @@ h1, h2, h3 {
     margin-left: 85px;
 }
 
-.editProject {
+.editProject, .editTask {
     display: inline-block;
     margin: 20px 8px 5px 5px;
     width: 25px;
@@ -386,7 +387,7 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
-.editProject:hover {
+.editProject:hover, .editTask:hover {
     box-shadow: 1px 1px 6px 1px #004e64;
 }
 
@@ -407,8 +408,8 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-/* Edit Project Modal */
-.popEditProject {
+/* Edit Project Modal, Edit Task Modal */
+.popEditProject, .popEditTask {
     display: grid;
     height: 200px;
     justify-content: center;
@@ -422,15 +423,15 @@ h1, h2, h3 {
         "cancelEditButton deleteProjectButton";
 }
 
-.cancelEditButton {
+.cancelEditButton, .cancelEditTaskButton {
     grid-area: cancelEditButton;
 }
 
-.deleteEditButton {
+.deleteEditButton, .deleteTaskButton {
     grid-area: deleteEditButton;
 }
 
-.alertEditProject {
+.alertEditProject, .alertEditTask {
     grid-area: alertEditProject;
     text-align: center;
     font-size: 1.1em;

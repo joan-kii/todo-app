@@ -1,6 +1,7 @@
 // Imports
 
 import { currentProjectName } from './index';
+import { editTaskModalRender } from './editTaskModal';
 
 // Input
 
@@ -24,7 +25,7 @@ const renderTaskList = (userProjects) => {
 
                 let editTask = document.createElement('div');
                 editTask.id = 'editTask';
-                editTask.className = 'editProject';
+                editTask.className = 'editTask';
                 taskListItem.appendChild(editTask);
 
                 let editTaskDot_1 = document.createElement('div');
