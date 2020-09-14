@@ -33,8 +33,7 @@ burgerButton.addEventListener('click', function() {
 
 newTaskButton.addEventListener('click', function() {
     plusTaskButton.classList.toggle('changeToCross');
-    newTaskModal.style.display = 'block';
-    
+    newTaskModal.style.display = 'block';    
 });
 
 newProjectButton.addEventListener('click', function() {
@@ -58,8 +57,16 @@ if (userProjects.length === 0) {
 renderSideBarProject(userProjects);
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
-    proj.addEventListener('click', () => {
-        currentProjectName.textContent = proj.innerText;
+    proj.addEventListener('click', function() {
+        for (let actualProject of userProjects) {
+            if (actualProject.name == proj.innerText) {
+                currentProjectName.textContent = actualProject.name;
+                break;
+            };
+        }
+        newTaskModalRender(currentProjectName.innerText);
+        burgerButton.classList.toggle('change');
+        createSideBar();
         renderTaskList(userProjects);
     });
 });
@@ -76,7 +83,7 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
                 if (prj.name == projectToDelete) {
                     userProjects.splice(userProjects.indexOf(prj), 1);
                 };
-            };
+            }
             editProjectModal.style.display = 'none';
             currentProject = userProjects[(userProjects.length - 1)];
             currentProjectName.textContent = currentProject.name;
@@ -98,16 +105,15 @@ Array.prototype.forEach.call(listEditTaskButtons, function(edit) {
         deleteTaskButton.addEventListener('click', function() {
             let taskToDelete = edit.title;
             console.log(taskToDelete);
-        })
-    })
-})
+        });
+    });
+});
 
 // Outputs
-
 currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
-content.appendChild(newTaskModalRender(currentProjectName.innerText));
 content.appendChild(editProjectModalRender());
+content.appendChild(newTaskModalRender());
 renderTaskList(userProjects);
 
 // Exports
