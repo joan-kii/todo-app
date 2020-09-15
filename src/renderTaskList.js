@@ -24,7 +24,6 @@ const renderTaskList = (userProjects) => {
                 taskListProject.appendChild(taskListItem);
 
                 let editTask = document.createElement('div');
-                editTask.id = 'editTask';
                 editTask.className = 'editTask';
                 taskListItem.appendChild(editTask);
 

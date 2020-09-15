@@ -462,7 +462,7 @@ h1, h2, h3 {
         "editTask taskNotes taskNotes taskNotes taskNotes";
 }
 
-#editTask {
+.editTask {
     grid-area: editTask;
     margin: 45px 10px;
 }

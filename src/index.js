@@ -97,7 +97,9 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
 });
 
 Array.prototype.forEach.call(listEditTaskButtons, function(edit) {
+    console.log(listEditTaskButtons)
     edit.addEventListener('click', function() {
+        console.log(edit)
         editTaskModal.style.display = 'block';
 
         const deleteTaskButton = document.getElementById('deleteTaskButton');
