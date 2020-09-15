@@ -8,6 +8,8 @@ import { es } from 'date-fns/locale';
 
 // Main Function
 
+let projectSelected;
+
 const newTaskModalRender = () => {
     // Modal
     let newTaskModal = document.createElement('div');
@@ -21,12 +23,10 @@ const newTaskModalRender = () => {
     newTaskModal.appendChild(popTaskModal);
 
     // Project Title
-    let projectSelected = document.createElement('h2');
+    projectSelected = document.createElement('h2');
     projectSelected.id = 'projectSelected';
     projectSelected.className = 'projectSelected';
-    // No actualiza 'projectSelected'
     projectSelected.textContent = currentProjectName.textContent;
-    console.log(projectSelected.textContent)
     popTaskModal.appendChild(projectSelected);
 
     // New Task
@@ -168,4 +168,4 @@ const newTaskModalRender = () => {
     return newTaskModal;
 };
 
-export { newTaskModalRender };
+export { newTaskModalRender, projectSelected };

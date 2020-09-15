@@ -1,7 +1,7 @@
 // Imports 
 
 import { createSideBar } from './sideBar';
-import { newTaskModalRender } from './newTaskModal';
+import { newTaskModalRender, projectSelected } from './newTaskModal';
 import { newProjectModalRender } from './newProjectModal';
 import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
@@ -61,10 +61,10 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
         for (let actualProject of userProjects) {
             if (actualProject.name == proj.innerText) {
                 currentProjectName.textContent = actualProject.name;
+                projectSelected.textContent = currentProjectName.textContent;
                 break;
             };
         }
-        newTaskModalRender(currentProjectName.innerText);
         burgerButton.classList.toggle('change');
         createSideBar();
         renderTaskList(userProjects);

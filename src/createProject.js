@@ -6,9 +6,6 @@ const createProject = (id, name, tasks = []) => {
         tasks[index] = task;
         index++;
     };
-    const setName = (newName) => {
-        name = newName;
-    };
     return { id, name, tasks, addTask, setName };
 };
 
