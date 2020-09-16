@@ -65,12 +65,12 @@ const renderTaskList = (userProjects) => {
 
                 let labelTaskItemCheck = document.createElement('label');
                 labelTaskItemCheck.className = 'labelTaskItemCheck';
-                labelTaskItemCheck.setAttribute('for', 'taskItemCheck');
+                labelTaskItemCheck.setAttribute('for', `taskItemCheck_${task.title}`);
                 labelTaskItemCheck.textContent = 'Tarea Completada';
                 taskListItem.appendChild(labelTaskItemCheck);
 
                 let taskItemCheck = document.createElement('input');
-                taskItemCheck.id = 'taskItemCheck'
+                taskItemCheck.id = `taskItemCheck_${task.title}`;
                 taskItemCheck.className = 'taskItemCheck';
                 taskItemCheck.type = 'checkbox';
                 taskListItem.appendChild(taskItemCheck);
@@ -80,9 +80,9 @@ const renderTaskList = (userProjects) => {
                 taskItemNotes.textContent = task.notes;
                 taskListItem.appendChild(taskItemNotes);
             }
-        };
+        }
     }
-};
+}
 
 // Exports 
 

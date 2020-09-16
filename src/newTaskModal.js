@@ -116,31 +116,31 @@ const newTaskModalRender = () => {
     cancelNewTaskButton.addEventListener('click', function() {
         plusTaskButton.classList.toggle('changeToCross');
         newTaskModal.style.display = 'none';
-    });
+    })
 
     lowPriority.addEventListener('click', function() {
         if (lowPriority.className == 'lowPriority') {
             lowPriority.className = 'lowPrioritySelected';
             mediumPriority.className = 'mediumPriority';
             highPriority.className = 'highPriority';
-        };
-    });
+        }
+    })
 
     mediumPriority.addEventListener('click', function() {
         if (mediumPriority.className == 'mediumPriority') {
             mediumPriority.className = 'mediumPrioritySelected';
             lowPriority.className = 'lowPriority';
             highPriority.className = 'highPriority';
-        };
-    });
+        }
+    })
 
     highPriority.addEventListener('click', function() {
         if (highPriority.className == 'highPriority') {
             highPriority.className = 'highPrioritySelected';
             lowPriority.className = 'lowPriority';
             mediumPriority.className = 'mediumPriority';
-        };
-    });
+        }
+    })
 
     submitTask.addEventListener('click', function() {
         let todoTitle = taskTitle.value;
@@ -154,19 +154,18 @@ const newTaskModalRender = () => {
                 todoPriority = 2;
             } else if (highPriority.className == 'highPrioritySelected') {
                 todoPriority = 3;
-            };
+            }
             let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
             for (let prjt of userProjects) {
                 if (prjt.name == currentProjectName.textContent) {
-                    prjt.addTask(newTaskToProject);
-                    /* prjt.tasks.push(newTaskToProject); */
+                    prjt.tasks.push(newTaskToProject);
                     saveNewProject();
-                };
+                }
             }
-        };
-    });
+        }
+    })
 
     return newTaskModal;
-};
+}
 
 export { newTaskModalRender, projectSelected };

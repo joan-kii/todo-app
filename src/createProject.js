@@ -1,10 +1,7 @@
 // Function
 
 const createProject = (id, name, tasks=[]) => {
-    const addTask = (task) => {
-        tasks.push(task);
-    };
-    return { id, name, tasks, addTask };
+    return { id, name, tasks };
 };
 
 // Exports

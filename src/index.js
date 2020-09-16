@@ -29,22 +29,21 @@ const projectList = document.getElementById('projectList');
 burgerButton.addEventListener('click', function() {
     burgerButton.classList.toggle('change');
     createSideBar();
-});
+})
 
 newTaskButton.addEventListener('click', function() {
     plusTaskButton.classList.toggle('changeToCross');
     newTaskModal.style.display = 'block';    
-});
+})
 
 newProjectButton.addEventListener('click', function() {
     plusProjectButton.classList.toggle('changeToCross');
     newProjectModal.style.display = 'block';
-});
+})
 
 let projectCount = 1;
 let currentProject;
 let userProjects = JSON.parse(window.localStorage.getItem("userProjects") || "[]");
-console.log(userProjects)
 if (userProjects.length === 0) {
     userProjects.push(createProject(projectCount, 'Proyecto Prueba'));
     projectCount += 1;
@@ -55,7 +54,14 @@ if (userProjects.length === 0) {
     projectCount = userProjects.length + 1;
 };
 
+
+// Outputs
+currentProjectName.textContent = currentProject.name;
+content.appendChild(newProjectModalRender());
+content.appendChild(editProjectModalRender());
+content.appendChild(newTaskModalRender());
 renderSideBarProject(userProjects);
+renderTaskList(userProjects);
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', function() {
@@ -83,7 +89,7 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
             for (let prj of userProjects) {
                 if (prj.name == projectToDelete) {
                     userProjects.splice(userProjects.indexOf(prj), 1);
-                };
+                }
             }
             editProjectModal.style.display = 'none';
             currentProject = userProjects[(userProjects.length - 1)];
@@ -93,31 +99,24 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
             renderSideBarProject(userProjects);
             location.reload();
             createSideBar();
-        });
-    });
-});
+        })
+    })
+})
 
 Array.prototype.forEach.call(listEditTaskButtons, function(edit) {
-    console.log(listEditTaskButtons)
+    
     edit.addEventListener('click', function() {
-        console.log(edit)
+        let taskToDelete = edit.closest('.taskListItem').id;
+        content.appendChild(editTaskModalRender(taskToDelete));
         editTaskModal.style.display = 'block';
 
         const deleteTaskButton = document.getElementById('deleteTaskButton');
 
         deleteTaskButton.addEventListener('click', function() {
-            let taskToDelete = edit.title;
-            console.log(taskToDelete);
-        });
-    });
-});
-
-// Outputs
-currentProjectName.textContent = currentProject.name;
-content.appendChild(newProjectModalRender());
-content.appendChild(editProjectModalRender());
-content.appendChild(newTaskModalRender());
-renderTaskList(userProjects);
+            //Continuar aquí
+        })
+    })
+})
 
 // Exports
 
