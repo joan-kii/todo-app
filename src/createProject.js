@@ -1,12 +1,10 @@
 // Function
 
-const createProject = (id, name, tasks = []) => {
-    let index = 0;
+const createProject = (id, name, tasks=[]) => {
     const addTask = (task) => {
-        tasks[index] = task;
-        index++;
+        tasks.push(task);
     };
-    return { id, name, tasks, addTask, setName };
+    return { id, name, tasks, addTask };
 };
 
 // Exports

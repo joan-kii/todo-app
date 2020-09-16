@@ -44,6 +44,7 @@ newProjectButton.addEventListener('click', function() {
 let projectCount = 1;
 let currentProject;
 let userProjects = JSON.parse(window.localStorage.getItem("userProjects") || "[]");
+console.log(userProjects)
 if (userProjects.length === 0) {
     userProjects.push(createProject(projectCount, 'Proyecto Prueba'));
     projectCount += 1;

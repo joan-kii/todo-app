@@ -158,7 +158,8 @@ const newTaskModalRender = () => {
             let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
             for (let prjt of userProjects) {
                 if (prjt.name == currentProjectName.textContent) {
-                    prjt.tasks.push(newTaskToProject);
+                    prjt.addTask(newTaskToProject);
+                    /* prjt.tasks.push(newTaskToProject); */
                     saveNewProject();
                 };
             }
