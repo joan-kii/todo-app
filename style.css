@@ -173,7 +173,8 @@ h1, h2, h3 {
     background-color: rgba(0,0,0,0.4);
 }
 
-.popTaskModal, .popProjectModal, .popEditProject {
+.popTaskModal, .popProjectModal,
+.popEditProject, .popEditTask {
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -320,7 +321,8 @@ h1, h2, h3 {
 
 .cancelNewTaskButton, .submitTask, 
 .cancelButton, .submitProject, 
-.deleteProjectButton, .cancelEditButton {
+.deleteProjectButton, .cancelEditButton,
+.cancelEditTaskButton, .deleteTaskButton {
     padding-top: 3px;
     border: none;
     border-radius: 5px;
@@ -334,7 +336,8 @@ h1, h2, h3 {
 
 .cancelNewTaskButton:hover, .submitTask:hover, 
 .cancelButton:hover, .submitProject:hover,
-.deleteProjectButton:hover, .cancelEditButton:hover {
+.deleteProjectButton:hover, .cancelEditButton:hover,
+.cancelEditTaskButton:hover, .deleteTaskButton:hover {
     color: #004e64;
     background-color: white;
     border: 4px solid #004e64;
@@ -418,23 +421,47 @@ h1, h2, h3 {
     padding: 50px 30px;
     column-gap: 30px;
     row-gap: 45px;
+}
+
+.popEditProject {
     grid-template-areas: 
         "alertEditProject alertEditProject"
         "cancelEditButton deleteProjectButton";
 }
 
-.cancelEditButton, .cancelEditTaskButton {
+.popEditTask {
+    grid-template-areas: 
+        "alertEditTask alertEditTask"
+        "cancelEditTaskButton deleteTaskButton";
+}
+
+.cancelEditButton {
     grid-area: cancelEditButton;
 }
 
-.deleteEditButton, .deleteTaskButton {
+.cancelEditTaskButton {
+    grid-area: cancelEditTaskButton;
+}
+
+.deleteEditButton {
     grid-area: deleteEditButton;
 }
 
+.deleteTaskButton {
+    grid-area: deleteTaskButton;
+}
+
 .alertEditProject, .alertEditTask {
-    grid-area: alertEditProject;
     text-align: center;
     font-size: 1.1em;
+}
+
+.alertEditProject {
+    grid-area: alertEditProject;
+}
+
+.alertEditTask {
+    grid-area: alertEditTask;
 }
 
 /* Task Project List */
@@ -513,7 +540,7 @@ h1, h2, h3 {
     font-size: 1.1em;
 }
 
-#editTask, .taskItemTitle, .taskItemDate,
+.editTask, .taskItemTitle, .taskItemDate,
 .taskItemPriority, .taskItemCheck, .taskItemNotes,
 .labelTaskItemCheck {
     display: inline-block;
