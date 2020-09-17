@@ -60,6 +60,7 @@ currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(editProjectModalRender());
 content.appendChild(newTaskModalRender());
+content.appendChild(editTaskModalRender());
 renderSideBarProject(userProjects);
 renderTaskList(userProjects);
 
@@ -70,13 +71,14 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
                 currentProjectName.textContent = actualProject.name;
                 projectSelected.textContent = currentProjectName.textContent;
                 break;
-            };
+            }
         }
         burgerButton.classList.toggle('change');
         createSideBar();
         renderTaskList(userProjects);
-    });
-});
+        eventDeleteTask();
+    })
+})
 
 Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
     editProj.addEventListener('click', function() {
@@ -103,20 +105,21 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
     })
 })
 
-Array.prototype.forEach.call(listEditTaskButtons, function(edit) {
-    
-    edit.addEventListener('click', function() {
-        let taskToDelete = edit.closest('.taskListItem').id;
-        content.appendChild(editTaskModalRender(taskToDelete));
-        editTaskModal.style.display = 'block';
+const eventDeleteTask = () => {
+    Array.prototype.forEach.call(listEditTaskButtons, function(edit) { 
+        edit.addEventListener('click', function() {
+            let taskToDelete = edit.closest('.taskListItem').id;
+            editTaskModal.style.display = 'block';
 
-        const deleteTaskButton = document.getElementById('deleteTaskButton');
+            const deleteTaskButton = document.getElementById('deleteTaskButton');
 
-        deleteTaskButton.addEventListener('click', function() {
-            //Continuar aquí
+            deleteTaskButton.addEventListener('click', function() {
+                console.log(taskToDelete)
+                editTaskModal.style.display = 'none';
+            })
         })
     })
-})
+}
 
 // Exports
 

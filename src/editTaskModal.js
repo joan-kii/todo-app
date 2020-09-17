@@ -1,6 +1,6 @@
 // Function 
 
-const editTaskModalRender = (task) => {
+const editTaskModalRender = () => {
     // Modal
     const editTaskModal = document.createElement('div');
     editTaskModal.id = 'editTaskModal';
@@ -14,7 +14,7 @@ const editTaskModalRender = (task) => {
     const alertEditTask = document.createElement('p');
     alertEditTask.id = 'alertEditTask';
     alertEditTask.className = 'alertEditTask';
-    alertEditTask.textContent = `¿Quieres eliminar la tarea "${task}"?`
+    alertEditTask.textContent = `¿Quieres eliminar esta tarea?`
     popEditTask.appendChild(alertEditTask);
 
     const cancelEditTaskButton = document.createElement('button');

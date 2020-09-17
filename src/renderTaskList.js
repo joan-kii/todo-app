@@ -60,7 +60,7 @@ const renderTaskList = (userProjects) => {
                 } else {
                     taskItemPriority.textContent = 'Prioridad Alta';
                     taskItemPriority.style.textDecorationColor = 'red';
-                };
+                }
                 taskListItem.appendChild(taskItemPriority);
 
                 let labelTaskItemCheck = document.createElement('label');
