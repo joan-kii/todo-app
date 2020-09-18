@@ -84,11 +84,10 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
 Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
     editProj.addEventListener('click', function() {
         editProjectModal.style.display = 'block';
-
+        let projectToDelete = editProj.parentNode.id;
         const deleteProjectButton = document.getElementById('deleteProjectButton');
 
         deleteProjectButton.addEventListener('click', function() {
-            let projectToDelete = editProj.parentNode.id;
             console.log(projectToDelete)
             for (let prj of userProjects) {
                 if (prj.name == projectToDelete) {
@@ -109,11 +108,15 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
 })
 
 function eventDeleteTask() {
-    Array.prototype.forEach.call(listEditTaskButtons, function(edit) { 
-        let taskToDelete = '';
-        edit.addEventListener('click', function() {
+    console.log(listEditTaskButtons)
+    /* Array.prototype.forEach.call(listEditTaskButtons, function(edit) */ 
+    for (let edit in listEditTaskButtons) {
+        console.log(edit)
+        /* edit.addEventListener('click', function() {
             editTaskModal.style.display = 'block';
-            taskToDelete = edit.parentNode.id;
+            let taskToDelete = edit.parentNode.id;
+            const taskTitleToDelete = document.getElementById('taskTitleToDelete');
+            taskTitleToDelete.textContent = taskToDelete;
 
             const deleteTaskButton = document.getElementById('deleteTaskButton');
 
@@ -122,8 +125,8 @@ function eventDeleteTask() {
                 console.log(taskToDelete)
                 editTaskModal.style.display = 'none';
             })
-        })
-    })
+        }) */
+    }
 }
 // Exports
 

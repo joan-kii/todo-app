@@ -11,6 +11,11 @@ const editTaskModalRender = () => {
     popEditTask.className = 'popEditTask';
     editTaskModal.appendChild(popEditTask);
 
+    const taskTitleToDelete = document.createElement('h3');
+    taskTitleToDelete.id = 'taskTitleToDelete';
+    taskTitleToDelete.className = 'taskTitleToDelete';
+    popEditTask.appendChild(taskTitleToDelete);
+
     const alertEditTask = document.createElement('p');
     alertEditTask.id = 'alertEditTask';
     alertEditTask.className = 'alertEditTask';

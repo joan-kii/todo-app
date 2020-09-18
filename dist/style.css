@@ -416,21 +416,25 @@ h1, h2, h3 {
     display: grid;
     height: 200px;
     justify-content: center;
-    grid-template-columns: 150px 150px;
-    grid-template-rows: 60px 60px;
     padding: 50px 30px;
     column-gap: 30px;
     row-gap: 45px;
 }
 
 .popEditProject {
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 60px 60px;
     grid-template-areas: 
         "alertEditProject alertEditProject"
         "cancelEditButton deleteProjectButton";
 }
 
 .popEditTask {
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 20px 60px 60px;
+    row-gap: 20px;
     grid-template-areas: 
+        "taskTitleToDelete taskTitleToDelete"
         "alertEditTask alertEditTask"
         "cancelEditTaskButton deleteTaskButton";
 }
@@ -451,7 +455,8 @@ h1, h2, h3 {
     grid-area: deleteTaskButton;
 }
 
-.alertEditProject, .alertEditTask {
+.alertEditProject, .alertEditTask, 
+.taskTitleToDelete {
     text-align: center;
     font-size: 1.1em;
 }
@@ -462,6 +467,11 @@ h1, h2, h3 {
 
 .alertEditTask {
     grid-area: alertEditTask;
+}
+
+.taskTitleToDelete {
+    grid-area: taskTitleToDelete;
+    font-size: 1.4em;
 }
 
 /* Task Project List */
