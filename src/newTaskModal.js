@@ -63,6 +63,7 @@ const newTaskModalRender = () => {
     dueDate.className = 'dueDate';
     dueDate.type = 'date';
     dueDate.placeholder = 'Fecha';
+    dueDate.required = true;
     modalForm.appendChild(dueDate);
 
     // Priority Input

@@ -63,6 +63,7 @@ content.appendChild(newTaskModalRender());
 content.appendChild(editTaskModalRender());
 renderSideBarProject(userProjects);
 renderTaskList(userProjects);
+eventDeleteTask();
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', function() {
@@ -87,7 +88,8 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
         const deleteProjectButton = document.getElementById('deleteProjectButton');
 
         deleteProjectButton.addEventListener('click', function() {
-            let projectToDelete = editProj.closest('.renderProjectItem').id;
+            let projectToDelete = editProj.parentNode.id;
+            console.log(projectToDelete)
             for (let prj of userProjects) {
                 if (prj.name == projectToDelete) {
                     userProjects.splice(userProjects.indexOf(prj), 1);
@@ -101,26 +103,28 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
             renderSideBarProject(userProjects);
             location.reload();
             createSideBar();
+            eventDeleteTask();
         })
     })
 })
 
-const eventDeleteTask = () => {
+function eventDeleteTask() {
     Array.prototype.forEach.call(listEditTaskButtons, function(edit) { 
+        let taskToDelete = '';
         edit.addEventListener('click', function() {
-            let taskToDelete = edit.closest('.taskListItem').id;
             editTaskModal.style.display = 'block';
+            taskToDelete = edit.parentNode.id;
 
             const deleteTaskButton = document.getElementById('deleteTaskButton');
 
             deleteTaskButton.addEventListener('click', function() {
+                console.log(edit)
                 console.log(taskToDelete)
                 editTaskModal.style.display = 'none';
             })
         })
     })
 }
-
 // Exports
 
 export { plusTaskButton, plusProjectButton, userProjects, 
