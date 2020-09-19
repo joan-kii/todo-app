@@ -69,6 +69,7 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', function() {
         for (let actualProject of userProjects) {
             if (actualProject.name == proj.innerText) {
+                currentProject = actualProject;
                 currentProjectName.textContent = actualProject.name;
                 projectSelected.textContent = currentProjectName.textContent;
                 break;
@@ -88,7 +89,6 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
         const deleteProjectButton = document.getElementById('deleteProjectButton');
 
         deleteProjectButton.addEventListener('click', function() {
-            console.log(projectToDelete)
             for (let prj of userProjects) {
                 if (prj.name == projectToDelete) {
                     userProjects.splice(userProjects.indexOf(prj), 1);
@@ -108,11 +108,8 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
 })
 
 function eventDeleteTask() {
-    console.log(listEditTaskButtons)
-    /* Array.prototype.forEach.call(listEditTaskButtons, function(edit) */ 
-    for (let edit in listEditTaskButtons) {
-        console.log(edit)
-        /* edit.addEventListener('click', function() {
+    for (let edit of listEditTaskButtons) {
+        edit.addEventListener('click', function() {
             editTaskModal.style.display = 'block';
             let taskToDelete = edit.parentNode.id;
             const taskTitleToDelete = document.getElementById('taskTitleToDelete');
@@ -121,11 +118,16 @@ function eventDeleteTask() {
             const deleteTaskButton = document.getElementById('deleteTaskButton');
 
             deleteTaskButton.addEventListener('click', function() {
-                console.log(edit)
-                console.log(taskToDelete)
+                for (let tsk of currentProject.tasks) {
+                    if (tsk.title == taskToDelete) {
+                        currentProject.tasks.splice(currentProject.tasks.indexOf(tsk), 1);
+                    }
+                }
+                saveNewProject();
                 editTaskModal.style.display = 'none';
-            })
-        }) */
+                location.reload();
+             })
+        })
     }
 }
 // Exports
