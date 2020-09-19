@@ -1,7 +1,6 @@
 // Imports
 
 import { currentProjectName } from './index';
-import { editTaskModalRender } from './editTaskModal';
 
 // Input
 

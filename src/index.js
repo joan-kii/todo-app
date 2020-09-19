@@ -7,7 +7,7 @@ import { createProject } from './createProject';
 import { saveNewProject } from './localStorage';
 import { renderSideBarProject } from './renderProjectList';
 import { editProjectModalRender } from './editProjectModal';
-import { taskListProject, renderTaskList } from './renderTaskList';
+import { renderTaskList } from './renderTaskList';
 import { editTaskModalRender } from './editTaskModal';
 
 // Inputs
@@ -22,6 +22,7 @@ const content = document.getElementById('content');
 const listProjectNames = document.getElementsByClassName('projectName');
 const listEditProjectButtons = document.getElementsByClassName('editProject');
 const listEditTaskButtons = document.getElementsByClassName('editTask');
+const listItemsCheck = document.getElementsByClassName('taskItemCheck');
 const projectList = document.getElementById('projectList');
 
 // Functions
@@ -64,6 +65,7 @@ content.appendChild(editTaskModalRender());
 renderSideBarProject(userProjects);
 renderTaskList(userProjects);
 eventDeleteTask();
+markingCheck();
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', function() {
@@ -130,6 +132,23 @@ function eventDeleteTask() {
         })
     }
 }
+
+/* function markingCheck() {
+    for (let check of listItemsCheck) {
+        console.log('check: ', check)
+        for (let currentTask of currentProject.tasks) {
+        let taskToCheck = currentProject.tasks[currentProject.tasks.indexOf(currentTask)];
+        console.log('tasktoCheck: ', taskToCheck)
+            if (currentTask.title == taskToCheck) {
+                console.log('checked: ', check.checked)
+                /* currentProject.tasks..checklist = check.checked;
+                console.log('currenttask: ', currentTask)
+                saveNewProject();
+            }
+        }
+    }
+} */
+
 // Exports
 
 export { plusTaskButton, plusProjectButton, userProjects, 

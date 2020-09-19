@@ -156,7 +156,8 @@ const newTaskModalRender = () => {
             } else if (highPriority.className == 'highPrioritySelected') {
                 todoPriority = 3;
             }
-            let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority);
+            let checklist = false;
+            let newTaskToProject = createTodo(todoTitle, todoNotes, todoDueDate, todoPriority, checklist);
             for (let prjt of userProjects) {
                 if (prjt.name == currentProjectName.textContent) {
                     prjt.tasks.push(newTaskToProject);
