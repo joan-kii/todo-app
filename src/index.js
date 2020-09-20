@@ -83,6 +83,7 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
         createSideBar();
         renderTaskList(userProjects);
         eventDeleteTask();
+        checkingTask();
     })
 })
 
@@ -141,18 +142,20 @@ function eventDeleteTask() {
 
 // Task Completed
 
-Array.prototype.forEach.call(listItemsCheck, function(item) {
-    item.addEventListener('click', function() {
-        let taskToCheck = item.parentNode.id;
-        for (let tsk of currentProject.tasks) {
-            if (tsk.title == taskToCheck) {
-                tsk.checklist = item.checked;
-                saveNewProject();
+function checkingTask() {
+    Array.prototype.forEach.call(listItemsCheck, function(item) {
+        item.addEventListener('click', function() {
+            let taskToCheck = item.parentNode.id;
+            for (let tsk of currentProject.tasks) {
+                if (tsk.title == taskToCheck) {
+                    tsk.checklist = item.checked;
+                    saveNewProject();
+                }
             }
-        }
-    });
-})
-console.log(userProjects)
+        });
+    })
+}
+
 // Exports
 
 export { plusTaskButton, plusProjectButton, userProjects, 

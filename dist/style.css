@@ -558,3 +558,20 @@ h1, h2, h3 {
     display: inline-block;
     text-align: center;
 }
+
+@media (max-width: 1600px){
+    .taskListItem {
+        height: 250px;
+        margin-top: 0.5em;
+    }
+}
+/* @media (max-width: 360px) {
+    .topBar {
+        height: 50px;
+    }
+
+    .burger {
+        padding: 0;
+        margin: 0;
+    }
+} */
