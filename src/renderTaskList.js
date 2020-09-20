@@ -72,6 +72,9 @@ const renderTaskList = (userProjects) => {
                 taskItemCheck.id = `taskItemCheck_${task.title}`;
                 taskItemCheck.className = 'taskItemCheck';
                 taskItemCheck.type = 'checkbox';
+                if (task.checklist == true) {
+                    taskItemCheck.checked = true;
+                }
                 taskListItem.appendChild(taskItemCheck);
 
                 let taskItemNotes = document.createElement('p');

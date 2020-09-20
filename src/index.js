@@ -57,6 +57,7 @@ if (userProjects.length === 0) {
 
 
 // Outputs
+
 currentProjectName.textContent = currentProject.name;
 content.appendChild(newProjectModalRender());
 content.appendChild(editProjectModalRender());
@@ -65,7 +66,8 @@ content.appendChild(editTaskModalRender());
 renderSideBarProject(userProjects);
 renderTaskList(userProjects);
 eventDeleteTask();
-markingCheck();
+
+// Change Project to Render
 
 Array.prototype.forEach.call(listProjectNames, function(proj) {
     proj.addEventListener('click', function() {
@@ -83,6 +85,8 @@ Array.prototype.forEach.call(listProjectNames, function(proj) {
         eventDeleteTask();
     })
 })
+
+// Edit Project
 
 Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
     editProj.addEventListener('click', function() {
@@ -109,6 +113,8 @@ Array.prototype.forEach.call(listEditProjectButtons, function(editProj) {
     })
 })
 
+// Edit Task
+
 function eventDeleteTask() {
     for (let edit of listEditTaskButtons) {
         edit.addEventListener('click', function() {
@@ -129,26 +135,24 @@ function eventDeleteTask() {
                 editTaskModal.style.display = 'none';
                 location.reload();
              })
-        })
+        });
     }
 }
 
-/* function markingCheck() {
-    for (let check of listItemsCheck) {
-        console.log('check: ', check)
-        for (let currentTask of currentProject.tasks) {
-        let taskToCheck = currentProject.tasks[currentProject.tasks.indexOf(currentTask)];
-        console.log('tasktoCheck: ', taskToCheck)
-            if (currentTask.title == taskToCheck) {
-                console.log('checked: ', check.checked)
-                /* currentProject.tasks..checklist = check.checked;
-                console.log('currenttask: ', currentTask)
+// Task Completed
+
+Array.prototype.forEach.call(listItemsCheck, function(item) {
+    item.addEventListener('click', function() {
+        let taskToCheck = item.parentNode.id;
+        for (let tsk of currentProject.tasks) {
+            if (tsk.title == taskToCheck) {
+                tsk.checklist = item.checked;
                 saveNewProject();
             }
         }
-    }
-} */
-
+    });
+})
+console.log(userProjects)
 // Exports
 
 export { plusTaskButton, plusProjectButton, userProjects, 
