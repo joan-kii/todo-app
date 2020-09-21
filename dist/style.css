@@ -559,10 +559,93 @@ h1, h2, h3 {
     text-align: center;
 }
 
+/* Responsive */
+
 @media (max-width: 1600px){
     .taskListItem {
         height: 250px;
         margin-top: 0.5em;
+        grid-template-columns: 40px 180px 180px 40px;
+        grid-template-rows: 45px 40px 40px 40px;
+        grid-template-areas: 
+            "editTask taskTitle taskTitle taskTitle"
+            "taskDate taskDate taskDate taskDate"
+            "taskPriority taskPriority labelTaskCheck taskCheck"
+            "taskNotes taskNotes taskNotes taskNotes";
+    }
+
+    .editTask {
+        margin: 3px 
+    }
+}
+
+@media (max-width: 1300px) {
+    .renderProjectItem, .newProjectButton {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1200px){
+    .taskListProject {
+        margin-left: 35%;
+    }
+    .taskListItem {
+        height: 250px;
+        width: 40%;
+        margin-top: 0.5em;
+        grid-template-columns: 40px 180px 40px;
+        grid-template-rows: 45px 40px 40px 40px 40px;
+        grid-template-areas: 
+            "editTask taskTitle ."
+            "taskDate taskDate taskDate"
+            "taskPriority taskPriority taskPriority"
+            "labelTaskCheck labelTaskCheck taskCheck"
+            "taskNotes taskNotes taskNotes";
+    }
+
+    .editTask {
+        margin: 3px 
+    }
+    .taskItemPriority {
+        margin: 0 50px;
+    }
+}
+
+@media (max-width: 1000px){
+    html {
+        font-size: 80%;
+    }
+    
+    .taskListItem {
+        grid-template-columns: 20px 150px 20px;
+        grid-template-rows: 45px 40px 40px 40px 40px;
+        grid-template-areas: 
+            "editTask taskTitle ."
+            "taskDate taskDate taskDate"
+            "taskPriority taskPriority taskPriority"
+            "labelTaskCheck labelTaskCheck taskCheck"
+            "taskNotes taskNotes taskNotes";
+    }
+
+    .taskItemPriority {
+        margin: 0 30px;
+    }
+}
+
+@media (max-width: 850px){
+    /* .sideBar {
+        CONTINUAR AQUÏ
+    } */
+    .taskItemPriority {
+        margin: 0 30px;
+    }
+
+    .renderProjectItem, .newProjectButton {
+        margin-left: 10px;
+    }
+
+    .projectName {
+        margin: 23px 0;
     }
 }
 /* @media (max-width: 360px) {
