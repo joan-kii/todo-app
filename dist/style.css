@@ -606,8 +606,45 @@ h1, h2, h3 {
     .editTask {
         margin: 3px 
     }
+
     .taskItemPriority {
         margin: 0 50px;
+    }
+
+    .modalForm {
+        grid-template-columns:120px 120px;
+        grid-template-rows: 60px 60px 50px 50px;
+        grid-template-areas: 
+            "title title"
+            "notes notes"
+            "date priority"
+            "cancel submit";
+        column-gap: 30px;
+        row-gap: 10px;
+        margin: 0 10px 10px 10px;
+    }
+
+    .priority {
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 5px 40px;
+        grid-template-areas: 
+            "label label label"
+            "lowPriority mediumPriority highPriority";
+    }
+
+    .lowPriority, .lowPrioritySelected,
+    .mediumPriority, .mediumPrioritySelected,
+    .highPriority, .highPrioritySelected {
+    width: 32px;
+    height: 60%;
+    margin-left: 2px;
+    font-size: 0.8em;
+    }
+/* SEGUIR AQUÍ */
+    .lowPriority span, .lowPrioritySelected,
+    .mediumPriority, .mediumPrioritySelected,
+    .highPriority, .highPrioritySelected {
+        display: none;
     }
 }
 
@@ -627,12 +664,29 @@ h1, h2, h3 {
             "taskNotes taskNotes taskNotes";
     }
 
+    .popEditProject {
+        grid-template-columns: 120px 120px;
+        grid-template-rows: 50px 50px;
+        column-gap: 15px;
+        row-gap: 30px;
+    }
+
+    .popEditTask {
+        grid-template-columns: 120px 120px;
+        grid-template-rows: 20px 60px 60px;
+        row-gap: 20px;
+    }
+
     .taskItemPriority {
         margin: 0 30px;
     }
 }
 
 @media (max-width: 850px) {
+    .popEditTask {
+        row-gap: 10px;
+    }
+
     .taskItemPriority {
         margin: 0 30px;
     }
@@ -665,6 +719,10 @@ h1, h2, h3 {
 
     .newTaskPlus {
         margin-left: 30px;
+    }
+
+    .editTask {
+        margin: 0;
     }
 
     .taskListItem {
@@ -705,9 +763,42 @@ h1, h2, h3 {
         margin: 0;
         font-size: 0.95em;
     }
+
+    .popEditProject {
+        width: 40%;
+        grid-template-columns: 150px;
+        grid-template-rows: 80px 50px 50px;
+        row-gap: 10px;
+        grid-template-areas: 
+        "alertEditProject "
+        "deleteProjectButton"
+        "cancelEditButton";
+    }
+
+    .editProjectModal {
+        padding: 100px 25%;
+    }
+
+    .popEditTask {
+        grid-template-columns: 150px;
+        grid-template-rows: 20px 60px 60px 60px;
+        grid-template-areas: 
+            "taskTitleToDelete"
+            "alertEditTask"
+            "deleteTaskButton"
+            "cancelEditTaskButton";
+    }
+
+    .editTaskModal {
+        padding: 100px 25%;
+    }
 }
 
 @media (max-width: 300px) {
+    .editProjectModal {
+        padding: 100px 20%;
+    }
+
     .taskListItem {
         width: 75%;
     }
