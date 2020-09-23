@@ -611,6 +611,10 @@ h1, h2, h3 {
         margin: 0 50px;
     }
 
+    .newTaskModal, .popProjectModal {
+        padding-top: 50px;
+    }
+
     .modalForm {
         grid-template-columns:120px 120px;
         grid-template-rows: 60px 60px 50px 50px;
@@ -635,16 +639,41 @@ h1, h2, h3 {
     .lowPriority, .lowPrioritySelected,
     .mediumPriority, .mediumPrioritySelected,
     .highPriority, .highPrioritySelected {
-    width: 32px;
-    height: 60%;
-    margin-left: 2px;
-    font-size: 0.8em;
+        width: 32px;
+        height: 60%;
+        margin-left: 2px;
+        font-size: 0.8em;
     }
-/* SEGUIR AQUÍ */
-    .lowPriority span, .lowPrioritySelected,
+
+    .lowPriority, .lowPrioritySelected,
     .mediumPriority, .mediumPrioritySelected,
     .highPriority, .highPrioritySelected {
-        display: none;
+        background-color: transparent;
+        border: none;;
+    }
+
+    .lowPriority, .lowPrioritySelected {
+        text-decoration: underline;
+        text-decoration-color: yellow;
+    }
+
+    .mediumPriority, .mediumPrioritySelected {
+        text-decoration: underline;
+        text-decoration-color: orange;
+    }
+
+    .highPriority, .highPrioritySelected {
+        text-decoration: underline;
+        text-decoration-color: red;
+    }
+
+    .popProjectModal {
+        grid-template-columns: 150px;
+        grid-template-rows: 60px 50px 50px;
+        grid-template-areas: 
+            "projectTitle"
+            "submitProject"
+            "cancelButton";
     }
 }
 
@@ -662,6 +691,19 @@ h1, h2, h3 {
             "taskPriority taskPriority taskPriority"
             "labelTaskCheck labelTaskCheck taskCheck"
             "taskNotes taskNotes taskNotes";
+    }
+
+    .modalForm {
+        grid-template-columns:100px 100px;
+        grid-template-rows: 60px 60px 40px 60px;
+        grid-template-areas: 
+            "title title"
+            "notes notes"
+            "date priority"
+            "cancel submit";
+        column-gap: 30px;
+        row-gap: 10px;
+        margin: 0 10px 10px 10px;
     }
 
     .popEditProject {
@@ -683,6 +725,11 @@ h1, h2, h3 {
 }
 
 @media (max-width: 850px) {
+    .modalForm {
+        grid-template-columns:80px 80px;
+        grid-template-rows: 60px 60px 40px 60px;
+    }
+
     .popEditTask {
         row-gap: 10px;
     }
@@ -707,6 +754,20 @@ h1, h2, h3 {
 
     h1 {
         display: none;
+    }
+
+    .modalForm {
+        height: auto;
+        grid-template-columns:100px ;
+        grid-template-rows: 60px 60px 40px 40px 30px 30px;
+        grid-template-areas: 
+            "title"
+            "notes "
+            "date"
+            "priority"
+            "submit"
+            "cancel";
+        row-gap: 5px;
     }
 
     .taskListProject {
@@ -792,9 +853,17 @@ h1, h2, h3 {
     .editTaskModal {
         padding: 100px 25%;
     }
+
+    .popProjectModal {
+        grid-template-columns: 80px;
+    }
 }
 
 @media (max-width: 300px) {
+    .modalForm {
+        grid-template-columns:100px ;
+    }
+
     .editProjectModal {
         padding: 100px 20%;
     }
